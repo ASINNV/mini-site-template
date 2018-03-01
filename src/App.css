@@ -193,9 +193,6 @@ body {
   padding: 15px 0;
   margin: 0;
 }
-.pipe {
-  color: #bcbbbb;
-}
 
 .info-bar {
   display: flex;
@@ -224,9 +221,6 @@ body {
 @media (min-width: 320px) {
   html {
     font-size: 18px;
-  }
-  hr {
-    margin: 0;
   }
   .brand-container {
     margin-top: 40px;
@@ -277,17 +271,15 @@ body {
     /*text-align: center;*/
     /*z-index: 1;*/
   /*}*/
-
-  #social {
-    flex-wrap: wrap;
+  .social-container {
+    padding: 15px 10px;
   }
   #social div {
-    width: 25%;
     text-align: center;
     padding: 15px 0;
   }
-  .pipe {
-    display: none;
+  .info-bar-text {
+    display: none !important;
   }
   .footer-element {
     /*display: block;*/
@@ -353,7 +345,6 @@ body {
     font-size: 3em !important;
   }
   #social {
-    flex-wrap: nowrap;
     padding: 30px 0;
   }
   #social div {
@@ -361,11 +352,14 @@ body {
     text-align: left;
     padding: 0;
   }
-  .pipe {
-    display: block;
+  .info-bar {
+    margin-top: 30px;
   }
-  hr {
-    display: none;
+  .info-bar-icons {
+    display: none !important;
+  }
+  .info-bar-text {
+    display: inline-block !important;
   }
 
 

@@ -157,28 +157,27 @@ class App extends Component {
                 </div>
               </div>
 
-              <hr/>
+              {/*<hr/>*/}
 
-              {/*<div className="info-bar">*/}
-                {/*<h3 className="contact-info">contact info:</h3>*/}
-                {/*<p>(707) 684-9999</p>*/}
-                {/*<p>companyemail@gmail.com</p>*/}
-                {/*<p>790 Port Rd, Point Arena, CA</p>*/}
-              {/*</div>*/}
-
-              <div id="social" className="social-container">
-                <div className="d-inline-block w-8">
+              <div className="info-bar">
+                <p className="info-bar-text">(707) 684-9999</p>
+                <p className="info-bar-text">companyemail@gmail.com</p>
+                <p className="info-bar-text">790 Port Rd, Point Arena, CA</p>
+                <div className="info-bar-icons">
                   <a href="tel:+15555555555"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
                 </div>
 
-                <div className="d-inline-block w-8">
+                <div className="info-bar-icons">
                   <a href="mailto:companyname@gmail.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
                 </div>
 
-                <div className="d-inline-block w-8">
+                <div className="info-bar-icons">
                   <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank"><i id="address-button" className="fa fa-map-pin social-icon"/></a>
                 </div>
-                <div className="social-icon text-medium-gray pipe">|</div>
+              </div>
+
+              <div id="social" className="social-container">
+
                 <div className="d-inline-block w-8">
                   <a href=""><i className="fa fa-facebook-square social-icon"/></a>
                 </div>
