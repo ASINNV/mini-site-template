@@ -1,3 +1,6 @@
+html {
+  font-size: 20px;
+}
 h1 {
   font-size: 3em;
   font-weight: 900;
@@ -19,6 +22,9 @@ h4 {
 p {
   line-height: 1.5em;
 }
+footer p, header p {
+  font-size: .75em;
+}
 td {
   line-height: 1.3em;
 }
@@ -28,9 +34,15 @@ i {
 i.fontawesome-contact:hover {
   color: #636363;
 }
+body {
+  background-color: #cccccc;
+}
+#app-container {
+  background-color: #fff;
+}
 
 .no-line-height {
-  line-height: 0.65em;
+  line-height: 0.5em;
 }
 
 .ta-center {
@@ -51,11 +63,6 @@ i.fontawesome-contact:hover {
   to { transform: rotate(360deg); }
 }
 
-.social-icon {
-  color: #4a4a4a;
-  font-size: 3em !important;
-}
-
 .w-100 {
   width: 100%;
 }
@@ -65,9 +72,7 @@ i.fontawesome-contact:hover {
 .w-33 {
   width: 33.333333333333334%;
 }
-.w-18 {
-  width: 18%;
-}
+
 .w-main {
   width: 61.8%;
 }
@@ -97,6 +102,10 @@ i.fontawesome-contact:hover {
 .vert-pad-20 {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.vert-padding-30 {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .hor-pad-10 {
   padding-left: 10px;
@@ -138,6 +147,9 @@ i.fontawesome-contact:hover {
 .text-light-gray {
   color: #d8d8d8;
 }
+.text-medium-gray {
+  color: #bcbbbb !important;
+}
 .t-align-left {
   text-align: left;
 }
@@ -155,7 +167,7 @@ i.fontawesome-contact:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 320px;
 }
 
 .wave {
@@ -165,28 +177,44 @@ i.fontawesome-contact:hover {
 .footer-element {
   display: inline-block;
   width: 50%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 5px;
   vertical-align: middle;
 }
 
-.fontawesome-contact {
+.social-icon {
+  color: #4a4a4a;
   font-size: 3em !important;
 }
-.social-container {
-  text-align: left;
-}
-/*#info-window-label {*/
-  /*position: absolute;*/
-  /*top: -63px;*/
-  /*left: 50%;*/
-  /*right: 0;*/
-  /*transform: translateX(-50%);*/
-  /*color: #919191;*/
-  /*text-align: center;*/
-  /*z-index: 1;*/
-/*}*/
 
+.social-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 15px 0;
+  margin: 0;
+}
+.pipe {
+  color: #bcbbbb;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bcbbbb;
+  border-radius: 8px;
+  padding: 10px;
+}
+.contact-info {
+  font-weight: 600;
+}
+.info-bar p {
+  display: inline-block;
+  padding: 0 10px;
+}
+.t-align-center {
+  text-align: center;
+}
 /* DEV STYLES */
 /* DEV STYLES */
 /* DEV STYLES */
@@ -194,6 +222,12 @@ i.fontawesome-contact:hover {
 /* DEV STYLES */
 
 @media (min-width: 320px) {
+  html {
+    font-size: 18px;
+  }
+  hr {
+    margin: 0;
+  }
   .brand-container {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -219,6 +253,9 @@ i.fontawesome-contact:hover {
   .w-main {
     width: 100%;
   }
+  #inner-content {
+    padding-bottom: 30px;
+  }
   .contact-container {
     text-align: center;
   }
@@ -230,8 +267,27 @@ i.fontawesome-contact:hover {
   .contact-info-window-container {
     display: none;
   }
-  .social-container {
+  /*#info-window-label {*/
+    /*position: absolute;*/
+    /*top: -64px;*/
+    /*left: 50%;*/
+    /*right: 0;*/
+    /*transform: translateX(-50%);*/
+    /*color: #919191;*/
+    /*text-align: center;*/
+    /*z-index: 1;*/
+  /*}*/
+
+  #social {
+    flex-wrap: wrap;
+  }
+  #social div {
+    width: 25%;
     text-align: center;
+    padding: 15px 0;
+  }
+  .pipe {
+    display: none;
   }
   .footer-element {
     /*display: block;*/
@@ -239,7 +295,6 @@ i.fontawesome-contact:hover {
     /*padding-top: 10px;*/
     /*padding-bottom: 10px;*/
     vertical-align: middle;
-    font-size: .89em;
   }
 
 }
@@ -274,6 +329,9 @@ i.fontawesome-contact:hover {
     width: 580px;
     margin: 0 auto;
   }
+  #inner-content {
+    padding: 0 !important;
+  }
 
   .contact-container {
     text-align: left;
@@ -290,6 +348,27 @@ i.fontawesome-contact:hover {
   .social-container {
     text-align: left;
   }
+  .social-icon, .fontawesome-contact {
+    color: #4a4a4a;
+    font-size: 3em !important;
+  }
+  #social {
+    flex-wrap: nowrap;
+    padding: 30px 0;
+  }
+  #social div {
+    width: auto;
+    text-align: left;
+    padding: 0;
+  }
+  .pipe {
+    display: block;
+  }
+  hr {
+    display: none;
+  }
+
+
   .contact-info-group {
     display: inline-block;
     width: 18%;
@@ -379,6 +458,9 @@ i.fontawesome-contact:hover {
   }
   .social-container {
     text-align: left;
+  }
+  #inner-content {
+    padding: 30px 0 !important;
   }
 
   .contact-info-group {
