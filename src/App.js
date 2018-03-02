@@ -83,6 +83,8 @@ class App extends Component {
   // }
   componentDidMount() {
     let foot = document.getElementById('foot');
+    let instagram = document.getElementById('instagram-window');
+    let textContent = document.getElementById("text-content");
     // if (window.innerHeight)
     let footRect = document.getElementById('foot').getBoundingClientRect();
     let windowHeight = window.innerHeight;
@@ -94,6 +96,8 @@ class App extends Component {
       foot.style.bottom = "0";
 
     }
+
+    instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
   }
   render() {
     return (
@@ -119,7 +123,7 @@ class App extends Component {
               <div id="inner-content" className="">
                 <div className="d-inline-block w-main vert-align-middle">
 
-                  <div className="r-margin">
+                  <div id="text-content" className="">
 
                     <div>
                       <div>
@@ -151,13 +155,11 @@ class App extends Component {
 
                 </div>
                 <div className="d-inline-block w-side vert-align-middle hidden-mobile">
-                  <div className="bg-dark-gray text-light-gray b-rad-8">
-                    <p className="placeholder">instagram thing</p>
+                  <div className="">
+                    <p id="instagram-window" className="">instagram thing</p>
                   </div>
                 </div>
               </div>
-
-              <hr/>
 
               {/*<div className="info-bar">*/}
                 {/*<h3 className="contact-info">contact info:</h3>*/}
@@ -168,15 +170,15 @@ class App extends Component {
 
               <div id="social" className="social-container">
                 <div className="d-inline-block w-8">
-                  <a href="tel:+15555555555"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
+                  <a href="tel:+15555555555" title="(555) 555-5555"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
                 </div>
 
                 <div className="d-inline-block w-8">
-                  <a href="mailto:companyname@gmail.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
+                  <a href="mailto:companyname@gmail.com" title="companyname@gmail.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
                 </div>
 
                 <div className="d-inline-block w-8">
-                  <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank"><i id="address-button" className="fa fa-map-pin social-icon"/></a>
+                  <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank" title="790 Port Rd, Point Arena, CA 95468"><i id="address-button" className="fa fa-map-pin social-icon"/></a>
                 </div>
                 <div className="social-icon text-medium-gray pipe">|</div>
                 <div className="d-inline-block w-8">

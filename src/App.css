@@ -1,3 +1,11 @@
+#social, #text-content, #instagram-window {
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.4);
+  transition: box-shadow .1s ease-in-out;
+}
+#social:hover, #text-content:hover, #instagram-window:hover {
+  box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+}
+
 html {
   font-size: 20px;
 }
@@ -7,13 +15,13 @@ h1 {
 }
 h2 {
   font-size: 2em;
-  padding: 20px 0 10px 0;
+  padding-bottom: 10px;
   font-weight: 600;
 }
 h3 {
   font-size: 1.33em;
   font-weight: 400;
-  padding: 0 0 5px 0;
+  padding-bottom: 5px;
 }
 h4 {
   font-size: .89em;
@@ -163,11 +171,14 @@ body {
   border-radius: 8px;
 }
 
-.placeholder {
+#instagram-window {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px;
+
+  border-radius: 8px;
+  background-color: #d4d4d4;
+  color: #4a4a4a;
 }
 
 .wave {
@@ -278,8 +289,23 @@ body {
     /*z-index: 1;*/
   /*}*/
 
+  #inner-content {
+    padding: 30px 0 !important;
+  }
+
+  #text-content {
+    background-color: #d4d4d4;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  #text-content div div:first-child {
+    padding-bottom: 30px;
+  }
   #social {
     flex-wrap: wrap;
+    background-color: #d4d4d4;
+    padding: 0;
+    border-radius: 8px;
   }
   #social div {
     width: 25%;
@@ -329,9 +355,6 @@ body {
     width: 580px;
     margin: 0 auto;
   }
-  #inner-content {
-    padding: 0 !important;
-  }
 
   .contact-container {
     text-align: left;
@@ -345,6 +368,11 @@ body {
     width: 46%;
     display: inline-block;
   }
+
+  #inner-content {
+    padding: 30px 0 !important;
+  }
+
   .social-container {
     text-align: left;
   }
@@ -354,7 +382,7 @@ body {
   }
   #social {
     flex-wrap: nowrap;
-    padding: 30px 0;
+    padding: 20px;
   }
   #social div {
     width: auto;
@@ -364,10 +392,6 @@ body {
   .pipe {
     display: block;
   }
-  hr {
-    display: none;
-  }
-
 
   .contact-info-group {
     display: inline-block;
@@ -463,6 +487,10 @@ body {
     padding: 30px 0 !important;
   }
 
+  #text-content {
+    margin-right: 30px;
+  }
+
   .contact-info-group {
     display: inline-block;
     width: 18%;
@@ -540,6 +568,10 @@ body {
   .contact-info-window-container {
     width: 46%;
     display: inline-block;
+  }
+
+  #text-content {
+    margin-right: 30px;
   }
   .social-container {
     text-align: left;
