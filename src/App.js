@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import wave from "./images/wave2.png";
+// import wave from "./images/wave2.png";
+import poly from "./images/polygon.png";
 
 
 class App extends Component {
@@ -99,6 +100,14 @@ class App extends Component {
 
     instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
   }
+  showInformation(e) {
+    let overlay = document.getElementById('overlay');
+    overlay.style.display = "flex";
+  }
+  hideInformation(e) {
+    let overlay = document.getElementById('overlay');
+    overlay.style.display = "none";
+  }
   render() {
     return (
       <div id="app-container" className="ta-center">
@@ -116,7 +125,7 @@ class App extends Component {
             {/*<h1>[COMPANY NAME]</h1>*/}
           </div>
 
-          <img src={wave} alt="" className="wave d-block"/>
+          <img src={poly} alt="" className="wave d-block"/>
 
           <div id="parent-content" className="bg-light-gray">
             <div id="content" className="content-container t-align-left hor-container-margin">
@@ -138,35 +147,15 @@ class App extends Component {
                       </div>
                     </div>
 
-                    {/*<hr className="vert-margin"/>*/}
-
-                    {/*<div id="contact" className="contact-container vert-margin">*/}
-
-
-                    {/*<div className="contact-info-window-container">*/}
-                    {/*/!*<p id="info-window-label">contact info</p>*!/*/}
-                    {/*<div id="info-window"></div>*/}
-                    {/*</div>*/}
-
-                    {/*</div>*/}
-
-
                   </div>
 
                 </div>
                 <div className="d-inline-block w-side vert-align-middle hidden-mobile">
                   <div className="">
-                    <p id="instagram-window" className="">instagram thing</p>
+                    <p id="instagram-window" className="">instagram feed</p>
                   </div>
                 </div>
               </div>
-
-              {/*<div className="info-bar">*/}
-                {/*<h3 className="contact-info">contact info:</h3>*/}
-                {/*<p>(707) 684-9999</p>*/}
-                {/*<p>companyemail@gmail.com</p>*/}
-                {/*<p>790 Port Rd, Point Arena, CA</p>*/}
-              {/*</div>*/}
 
               <div id="social" className="social-container">
                 <div className="d-inline-block w-8">
@@ -197,6 +186,43 @@ class App extends Component {
                   <a href=""><i className="fa fa-snapchat-square social-icon"/></a>
                 </div>
               </div>
+
+                <p id="contact-expander" onClick={this.showInformation.bind(this)}>SHOW CONTACT INFO</p>
+
+              <div id="overlay">
+                <div id="card">
+                  <h2 className="overlay-heading">contact information</h2>
+                  <table>
+                    <tbody>
+                    <tr>
+                      <label>phone</label>
+                      <td>(707) 882-5555</td>
+                    </tr>
+                    <tr>
+                      <label>email</label>
+                      <td>companyemail@gmail.com</td>
+                    </tr>
+                    <tr>
+                      <label>address</label>
+                      <td>
+                        <table>
+                          <tbody>
+                          <tr>
+                            <td className="d-block">[Company Name]</td>
+                            <td className="d-block">[Street Address]</td>
+                            <td className="d-block">[City, State, & Zip]</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div id="overlay-button" onClick={this.hideInformation.bind(this)}>close window</div>
+                </div>
+
+              </div>
+
             </div>
           </div>
 

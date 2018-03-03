@@ -1,11 +1,3 @@
-#social, #text-content, #instagram-window {
-  box-shadow: 0 0 0 0 rgba(0,0,0,0.4);
-  transition: box-shadow .1s ease-in-out;
-}
-#social:hover, #text-content:hover, #instagram-window:hover {
-  box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
-}
-
 html {
   font-size: 20px;
 }
@@ -71,6 +63,67 @@ body {
   to { transform: rotate(360deg); }
 }
 
+.flex-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contact-expander {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #d4d4d4;
+  color: #bcbbbb;
+  border-radius: 8px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+#overlay {
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 10px;
+  z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+tr {
+  line-height: 2;
+}
+label {
+  padding-right: 15px;
+  color: #cccccc;
+  /*margin-bottom:10px;*/
+}
+.overlay-heading {
+  color: #cccccc;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  text-align: center;
+
+}
+#card {
+  background-color: #666666;
+  padding: 0px 10px;
+  border-radius: 8px;
+}
+#overlay-button {
+  /*position: absolute;*/
+  /*bottom: 30px;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  background-color: #cccccc;
+  color: #4a4a4a;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  padding: 15px 20px;
+  cursor: pointer;
+}
 .w-100 {
   width: 100%;
 }
@@ -171,6 +224,10 @@ body {
   border-radius: 8px;
 }
 
+#parent-content {
+  padding: 30px 0;
+}
+
 #instagram-window {
   display: flex;
   justify-content: center;
@@ -264,8 +321,8 @@ body {
   .w-main {
     width: 100%;
   }
-  #inner-content {
-    padding-bottom: 30px;
+  #parent-content {
+    padding: 0 0 30px 0;
   }
   .contact-container {
     text-align: center;
@@ -290,7 +347,7 @@ body {
   /*}*/
 
   #inner-content {
-    padding: 30px 0 !important;
+    padding: 30px 0 10px 0 !important;
   }
 
   #text-content {
@@ -370,7 +427,7 @@ body {
   }
 
   #inner-content {
-    padding: 30px 0 !important;
+    padding: 30px 0 10px 0 !important;
   }
 
   .social-container {
@@ -435,6 +492,28 @@ body {
 }
 
 @media (min-width: 900px) {
+  #social, #text-content, #instagram-window, #contact-expander {
+    /*box-shadow: 0 0 0 0 rgba(0,0,0,0.4);*/
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.0);
+    transition: box-shadow .1s ease-in-out;
+    cursor: default;
+  }
+  #social:hover, #text-content:hover, #instagram-window:hover, #contact-expander:hover {
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+  }
+  #contact-expander {
+    margin: 30px 0;
+    cursor: pointer; /* to counteract the cursor setting above */
+  }
+  .social-icon {
+    transition: color .25s ease-in-out;
+  }
+  .social-icon:hover {
+    color: #7d7d7d;
+  }
+  #card {
+    padding: 15px 30px;
+  }
   .brand-container {
     margin-top: 40px;
     margin-bottom: 40px;
