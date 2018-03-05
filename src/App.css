@@ -94,8 +94,9 @@ body {
 tr {
   line-height: 2;
 }
-label {
+.table-label {
   padding-right: 15px;
+  padding-bottom: 15px;
   color: #cccccc;
   /*margin-bottom:10px;*/
 }
@@ -110,6 +111,7 @@ label {
   background-color: #666666;
   padding: 0px 10px;
   border-radius: 8px;
+  border: 4px solid #cccccc;
 }
 #overlay-button {
   /*position: absolute;*/
@@ -242,12 +244,12 @@ label {
   width: 100%;
 }
 
-.footer-element {
-  display: inline-block;
-  width: 50%;
-  padding: 10px 5px;
-  vertical-align: middle;
-}
+/*.footer-element {*/
+  /*display: inline-block;*/
+  /*width: 50%;*/
+  /*padding: 10px 5px;*/
+  /*vertical-align: middle;*/
+/*}*/
 
 .social-icon {
   color: #4a4a4a;
@@ -292,9 +294,6 @@ label {
 @media (min-width: 320px) {
   html {
     font-size: 18px;
-  }
-  hr {
-    margin: 0;
   }
   .brand-container {
     margin-top: 40px;
@@ -372,10 +371,25 @@ label {
   .pipe {
     display: none;
   }
+
+  #card {
+    background-color: #666666;
+    padding: 0px 10px;
+    border-radius: 8px;
+    border: 4px solid #cccccc;
+  }
+
+  #foot {
+    color: #d4d4d4;
+    padding: 10px 0;
+  }
+  #foot a {
+    color: #d4d4d4;
+  }
   .footer-element {
     /*display: block;*/
-    /*width: 100%;*/
-    /*padding-top: 10px;*/
+    width: 100%;
+    padding: 0;
     /*padding-bottom: 10px;*/
     vertical-align: middle;
   }
@@ -428,6 +442,7 @@ label {
 
   #inner-content {
     padding: 30px 0 10px 0 !important;
+    cursor: default;
   }
 
   .social-container {
@@ -449,7 +464,12 @@ label {
   .pipe {
     display: block;
   }
-
+  #card {
+    background-color: #666666;
+    padding: 0px 10px;
+    border-radius: 8px;
+    border: 4px solid #cccccc;
+  }
   .contact-info-group {
     display: inline-block;
     width: 18%;
@@ -481,7 +501,13 @@ label {
   .fade-in {
     opacity: 1 !important;
   }
-
+  #foot {
+    color: #d4d4d4;
+    padding: 0;
+  }
+  #foot a {
+    color: #d4d4d4;
+  }
   .footer-element {
     display: inline-block;
     width: 50%;
@@ -492,27 +518,34 @@ label {
 }
 
 @media (min-width: 900px) {
-  #social, #text-content, #instagram-window, #contact-expander {
-    /*box-shadow: 0 0 0 0 rgba(0,0,0,0.4);*/
-    box-shadow: 0 0 30px 0 rgba(0,0,0,0.0);
-    transition: box-shadow .1s ease-in-out;
-    cursor: default;
+  .social-icon {
+    transition: color .2s ease-in-out, transform .2s ease-in-out !important;
   }
-  #social:hover, #text-content:hover, #instagram-window:hover, #contact-expander:hover {
-    box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+  .social-icon:hover {
+    color: #7d7d7d;
+    /*transform: scale(1.05) !important;*/
+    transform: translateY(-2px) !important;
   }
   #contact-expander {
     margin: 30px 0;
     cursor: pointer; /* to counteract the cursor setting above */
+    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
-  .social-icon {
-    transition: color .25s ease-in-out;
+  #contact-expander:hover {
+    background-color: #4a4a4a;
   }
-  .social-icon:hover {
-    color: #7d7d7d;
+  #overlay-button {
+    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  }
+  #overlay-button:hover {
+    background-color: #4a4a4a;
+    color: #cccccc;
   }
   #card {
+    background-color: #666666;
     padding: 15px 30px;
+    border-radius: 8px;
+    border: 4px solid #cccccc;
   }
   .brand-container {
     margin-top: 40px;
@@ -564,6 +597,7 @@ label {
   }
   #inner-content {
     padding: 30px 0 !important;
+    cursor: default;
   }
 
   #text-content {
@@ -592,6 +626,13 @@ label {
     word-wrap: break-word;
   }
 
+  #foot {
+    color: #d4d4d4;
+    padding: 0;
+  }
+  #foot a {
+    color: #d4d4d4;
+  }
   .footer-element {
     display: inline-block;
     width: 50%;
@@ -603,6 +644,35 @@ label {
 }
 
 @media (min-width: 1200px) {
+  .social-icon {
+    transition: color .2s ease-in-out, transform .2s ease-in-out !important;
+  }
+  .social-icon:hover {
+    color: #7d7d7d;
+    /*transform: scale(1.05) !important;*/
+    transform: translateY(-2px) !important;
+  }
+  #contact-expander {
+    margin: 30px 0;
+    cursor: pointer; /* to counteract the cursor setting above */
+    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  }
+  #contact-expander:hover {
+    background-color: #4a4a4a;
+  }
+  #overlay-button {
+    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  }
+  #overlay-button:hover {
+    background-color: #4a4a4a;
+    color: #cccccc;
+  }
+  #card {
+    background-color: #666666;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 4px solid #cccccc;
+  }
   .brand-container {
     margin-top: 40px;
     margin-bottom: 40px;
@@ -648,6 +718,9 @@ label {
     width: 46%;
     display: inline-block;
   }
+  #inner-content {
+    cursor: default;
+  }
 
   #text-content {
     margin-right: 30px;
@@ -677,7 +750,13 @@ label {
     bottom: -51px;
     word-wrap: break-word;
   }
-
+  #foot {
+    color: #d4d4d4;
+    padding: 0;
+  }
+  #foot a {
+    color: #d4d4d4;
+  }
   .footer-element {
     display: inline-block;
     width: 50%;
@@ -688,6 +767,35 @@ label {
 }
 
 @media (min-width: 1800px) {
+  .social-icon {
+    transition: color .2s ease-in-out, transform .2s ease-in-out !important;
+  }
+  .social-icon:hover {
+    color: #7d7d7d;
+    /*transform: scale(1.05) !important;*/
+    transform: translateY(-2px) !important;
+  }
+  #contact-expander {
+    margin: 30px 0;
+    cursor: pointer; /* to counteract the cursor setting above */
+    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  }
+  #contact-expander:hover {
+    background-color: #4a4a4a;
+  }
+  #overlay-button {
+    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  }
+  #overlay-button:hover {
+    background-color: #4a4a4a;
+    color: #cccccc;
+  }
+  #card {
+    background-color: #666666;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 4px solid #cccccc;
+  }
   .brand-container {
     margin-top: 40px;
     margin-bottom: 0px;
@@ -717,7 +825,9 @@ label {
     width: 1200px;
     margin: 0 auto;
   }
-
+  #inner-content {
+    cursor: default;
+  }
   .contact-container {
     text-align: left;
   }
@@ -755,7 +865,13 @@ label {
     bottom: -61px;
     word-wrap: break-word;
   }
-
+  #foot {
+    color: #d4d4d4;
+    padding: 0;
+  }
+  #foot a {
+    color: #d4d4d4;
+  }
   .footer-element {
     display: inline-block;
     width: 50%;

@@ -85,17 +85,23 @@ class App extends Component {
   componentDidMount() {
     let foot = document.getElementById('foot');
     let instagram = document.getElementById('instagram-window');
+    let rootRect = document.getElementById('root').getBoundingClientRect();
     let textContent = document.getElementById("text-content");
     // if (window.innerHeight)
     let footRect = document.getElementById('foot').getBoundingClientRect();
     let windowHeight = window.innerHeight;
 
-    if (windowHeight > footRect.y) {
+    if (windowHeight > footRect.y && windowHeight < rootRect.height) {
+      console.log(footRect, windowHeight);
+      foot.style.position = "absolute";
+      foot.style.left = "0";
+      foot.style.right = "0";
+      foot.style.top = (rootRect.height - footRect.height) + "px";
+    } else if (windowHeight > footRect.y && windowHeight > rootRect.height) {
       foot.style.position = "absolute";
       foot.style.left = "0";
       foot.style.right = "0";
       foot.style.bottom = "0";
-
     }
 
     instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
@@ -114,7 +120,7 @@ class App extends Component {
 
 
         <header className="hor-pad-20 bg-gray">
-          <p className="text-gray vert-pad-10">full website coming soon!</p>
+          <p className="text-white vert-pad-10">full website coming soon!</p>
         </header>
 
 
@@ -195,15 +201,15 @@ class App extends Component {
                   <table>
                     <tbody>
                     <tr>
-                      <label>phone</label>
+                      <td className="table-label">phone</td>
                       <td>(707) 882-5555</td>
                     </tr>
                     <tr>
-                      <label>email</label>
+                      <td className="table-label">email</td>
                       <td>companyemail@gmail.com</td>
                     </tr>
                     <tr>
-                      <label>address</label>
+                      <td className="table-label">address</td>
                       <td>
                         <table>
                           <tbody>
