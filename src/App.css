@@ -1,5 +1,6 @@
 html {
   font-size: 20px;
+  background-color: #bbbbbb;
 }
 h1 {
   font-size: 3em;
@@ -297,7 +298,7 @@ tr {
   }
   .brand-container {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .logo {
     height: 60px;
@@ -399,7 +400,7 @@ tr {
 @media (min-width: 600px) {
   .brand-container {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .logo {
     height: 70px;
@@ -549,7 +550,7 @@ tr {
   }
   .brand-container {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   .logo {
     height: 80px;
@@ -675,7 +676,7 @@ tr {
   }
   .brand-container {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   .logo {
     height: 90px;
