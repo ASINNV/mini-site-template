@@ -108,11 +108,24 @@ class App extends Component {
   }
   showInformation(e) {
     let overlay = document.getElementById('overlay');
-    overlay.style.display = "flex";
+    let card = document.getElementById('card');
+    // overlay.style.display = "flex";
+    overlay.style.zIndex = 10;
+    overlay.style.opacity = 1;
+    card.style.transform = 'translateY(0)';
   }
   hideInformation(e) {
     let overlay = document.getElementById('overlay');
-    overlay.style.display = "none";
+    let card = document.getElementById('card');
+    let overlayButton = document.getElementById('overlay-button');
+    if (e.target === overlay || e.target === overlayButton) {
+      // overlay.style.display = "none";
+      overlay.style.opacity = 0;
+      card.style.transform = 'translateY(-10px)';
+      setTimeout(function() {
+        overlay.style.zIndex = -1;
+      }, 200);
+    }
   }
   render() {
     return (
@@ -143,13 +156,14 @@ class App extends Component {
                     <div>
                       <div>
                         <h2>Who We Are</h2>
-                        <p>dflkgsjdf;lkgsjdf;lgkjsdl kajdflkasjdfla sdjfas djlaksdj haklsj dhfalksdj fhaksjd fhaskld jfhaskd jhsdak</p>
-                        <p>dflkgsjdf;lkgsjdf;lgkjsdl kajdflkasjdfla sdjfas djlaksdj</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum eget mauris id consequat. Ut porta mattis finibus. Phasellus mattis eget nibh sit amet congue.</p>
+                        <p>Nullam vel suscipit turpis, eu mollis turpis.</p>
                       </div>
 
                       <div>
                         <h2>What We Do</h2>
-                        <p>sdfjah kjahsdfkj haksdjfh aksjdhf kajsdhf ajhdsfkj ahsdlkfj halksjdfh laksjdhf k kajsdhf laksjdhflk asjdhf alksdj fhalkdj hfa lksdjhf lakjdfh.</p>
+                        <p>Integer nunc leo, efficitur sit amet nibh sit amet, accumsan feugiat diam. Sed risus purus, elementum a lobortis eget, finibus non nisi.</p>
+                        <p>Nulla egestas euismod justo. Suspendisse felis ligula, tempor sit amet feugiat eget, porttitor a felis.</p>
                       </div>
                     </div>
 
@@ -158,7 +172,7 @@ class App extends Component {
                 </div>
                 <div className="d-inline-block w-side vert-align-middle hidden-mobile">
                   <div className="">
-                    <p id="instagram-window" className="">instagram feed</p>
+                    <p id="instagram-window" className="">Photo / Feed</p>
                   </div>
                 </div>
               </div>
@@ -195,7 +209,7 @@ class App extends Component {
 
                 <p id="contact-expander" onClick={this.showInformation.bind(this)}>SHOW CONTACT INFO</p>
 
-              <div id="overlay">
+              <div id="overlay" onClick={this.hideInformation.bind(this)}>
                 <div id="card">
                   <h2 className="overlay-heading">contact information</h2>
                   <table>

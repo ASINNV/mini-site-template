@@ -1,6 +1,10 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 html {
   font-size: 20px;
-  background-color: #bbbbbb;
+  background-color: #cccccc;
 }
 h1 {
   font-size: 3em;
@@ -25,6 +29,10 @@ p {
 }
 footer p, header p {
   font-size: .75em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 td {
   line-height: 1.3em;
@@ -37,6 +45,9 @@ i.fontawesome-contact:hover {
 }
 body {
   background-color: #cccccc;
+}
+header {
+  /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);*/
 }
 #app-container {
   background-color: #fff;
@@ -57,6 +68,10 @@ body {
 .logo {
   animation: App-logo-spin infinite 30s linear;
   height: 60px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @keyframes App-logo-spin {
@@ -73,10 +88,14 @@ body {
   text-align: center;
   padding: 10px 0;
   background-color: #d4d4d4;
-  color: #bcbbbb;
+  color: #333;
   border-radius: 8px;
   margin: 10px 0;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #overlay {
   background-color: rgba(0,0,0,0.8);
@@ -87,10 +106,14 @@ body {
   top: 0;
   bottom: 0;
   padding: 10px;
-  z-index: 10;
-  display: none;
+  /*z-index: 10;*/
+  /*display: none;*/
+  display: flex;
+  opacity: 0;
+  z-index: -1;
   justify-content: center;
   align-items: center;
+  transition: opacity .2s ease-in-out;
 }
 tr {
   line-height: 2;
@@ -100,12 +123,20 @@ tr {
   padding-bottom: 15px;
   color: #cccccc;
   /*margin-bottom:10px;*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .overlay-heading {
   color: #cccccc;
   padding: 10px 0;
   margin-bottom: 10px;
   text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
 }
 #card {
@@ -113,6 +144,8 @@ tr {
   padding: 0px 10px;
   border-radius: 8px;
   border: 4px solid #cccccc;
+  transform: translateY(-10px);
+  transition: transform .2s ease-in-out;
 }
 #overlay-button {
   /*position: absolute;*/
@@ -126,6 +159,10 @@ tr {
   text-align: center;
   padding: 15px 20px;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .w-100 {
   width: 100%;
@@ -230,7 +267,9 @@ tr {
 #parent-content {
   padding: 30px 0;
 }
-
+#text-content, #instagram-window, #social, #contact-expander {
+  box-shadow: 0px 2px 8px 0 rgba(0,0,0,0.5);
+}
 #instagram-window {
   display: flex;
   justify-content: center;
@@ -252,6 +291,7 @@ tr {
   /*vertical-align: middle;*/
 /*}*/
 
+
 .social-icon {
   color: #4a4a4a;
   font-size: 3em !important;
@@ -266,6 +306,10 @@ tr {
 }
 .pipe {
   color: #bcbbbb;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .info-bar {
@@ -352,11 +396,17 @@ tr {
 
   #text-content {
     background-color: #d4d4d4;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
   }
   #text-content div div:first-child {
     padding-bottom: 30px;
+  }
+  #text-content p {
+    margin-bottom: 1em;
+  }
+  #text-content p:last-child {
+    margin-bottom: 0;
   }
   #social {
     flex-wrap: wrap;
@@ -367,7 +417,7 @@ tr {
   #social div {
     width: 25%;
     text-align: center;
-    padding: 15px 0;
+    padding: 10px 0;
   }
   .pipe {
     display: none;
@@ -445,6 +495,9 @@ tr {
     padding: 30px 0 10px 0 !important;
     cursor: default;
   }
+  #text-content {
+    padding: 20px;
+  }
 
   .social-container {
     text-align: left;
@@ -467,9 +520,10 @@ tr {
   }
   #card {
     background-color: #666666;
-    padding: 0px 10px;
+    padding: 10px 25px;
     border-radius: 8px;
     border: 4px solid #cccccc;
+    font-size: 1.25em;
   }
   .contact-info-group {
     display: inline-block;
@@ -528,25 +582,26 @@ tr {
     transform: translateY(-2px) !important;
   }
   #contact-expander {
-    margin: 30px 0;
+    margin: 20px 0;
     cursor: pointer; /* to counteract the cursor setting above */
     transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
   #contact-expander:hover {
-    background-color: #4a4a4a;
+    background-color: #fff;
   }
   #overlay-button {
     transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   }
   #overlay-button:hover {
-    background-color: #4a4a4a;
-    color: #cccccc;
+    background-color: #fff;
+    /*color: #cccccc;*/
   }
   #card {
     background-color: #666666;
     padding: 15px 30px;
     border-radius: 8px;
     border: 4px solid #cccccc;
+    font-size: 1.5em;
   }
   .brand-container {
     margin-top: 40px;
@@ -557,15 +612,15 @@ tr {
   }
   .hor-container-margin {
     /*width: 90%;*/
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .r-margin {
-    margin-right: 30px;
+    margin-right: 20px;
   }
   .vert-margin {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .hidden-mobile {
     display: inline-block;
@@ -597,12 +652,15 @@ tr {
     text-align: left;
   }
   #inner-content {
-    padding: 30px 0 !important;
+    padding: 20px 0 !important;
     cursor: default;
   }
 
   #text-content {
-    margin-right: 30px;
+    margin-right: 20px;
+  }
+  #text-content div div:first-child {
+    padding-bottom: 20px;
   }
 
   .contact-info-group {
@@ -655,18 +713,9 @@ tr {
   }
   #contact-expander {
     margin: 30px 0;
-    cursor: pointer; /* to counteract the cursor setting above */
-    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  #contact-expander:hover {
-    background-color: #4a4a4a;
   }
   #overlay-button {
     transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  #overlay-button:hover {
-    background-color: #4a4a4a;
-    color: #cccccc;
   }
   #card {
     background-color: #666666;
@@ -687,11 +736,11 @@ tr {
     margin-right: auto;
   }
   .r-margin {
-    margin-right: 40px;
+    margin-right: 30px;
   }
   .vert-margin {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   .hidden-mobile {
     display: inline-block;
@@ -719,12 +768,19 @@ tr {
     width: 46%;
     display: inline-block;
   }
+  #parent-content {
+    padding: 0 0 20px 0;
+  }
   #inner-content {
+    padding: 30px 0 !important;
     cursor: default;
   }
 
   #text-content {
     margin-right: 30px;
+  }
+  #text-content div div:first-child {
+    padding-bottom: 30px;
   }
   .social-container {
     text-align: left;
@@ -776,20 +832,8 @@ tr {
     /*transform: scale(1.05) !important;*/
     transform: translateY(-2px) !important;
   }
-  #contact-expander {
-    margin: 30px 0;
-    cursor: pointer; /* to counteract the cursor setting above */
-    transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  #contact-expander:hover {
-    background-color: #4a4a4a;
-  }
   #overlay-button {
     transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  }
-  #overlay-button:hover {
-    background-color: #4a4a4a;
-    color: #cccccc;
   }
   #card {
     background-color: #666666;
