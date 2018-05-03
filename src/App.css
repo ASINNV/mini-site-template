@@ -4,7 +4,7 @@
 }
 html {
   font-size: 20px;
-  background-color: #cccccc;
+  background-color: #c2b59b;
 }
 h1 {
   font-size: 3em;
@@ -43,9 +43,6 @@ i {
 i.fontawesome-contact:hover {
   color: #636363;
 }
-body {
-  background-color: #cccccc;
-}
 header {
   /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);*/
 }
@@ -62,28 +59,38 @@ header {
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
   transition: box-shadow .1s ease-in-out;
 }
-#contact-expander, .social-icon, .fontawesome-contact, #instagram-window, #overlay-button {
-  color: #444;
+#contact-expander, .social-icon, .fontawesome-contact, #instagram-window {
+  color: #3f3522;
 }
 #contact-expander:hover, #overlay-button:hover {
   /*background-color: #c2b59b;*/
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
   /*animation-name: move-text;*/
   /*animation-duration: 1s;*/
   /*animation-iteration-count: infinite;*/
 }
 
 .text-gray, #card {
-  color: #444;
+  color: #3f3522;
 }
 .bg-light-gray {
   background-color: #c2b59b;
 }
+.overlay-heading, .table-label {
+  color: #ae9c7a;
+}
+#overlay-button {
+  color: #98835d;
+}
 .bg-gray, #card {
-  background-color: #ae9c7a;
+  background-color: #c2b59b;
+}
+#foot {
+  background: #c2b59b;
+  background: linear-gradient(#c2b59b, #ae9c7a);
 }
 .bg-dark-gray {
-  background-color: #444444;
+  background-color: #3f3522;
 }
 
 /*@keyframes move-text {*/
@@ -167,7 +174,6 @@ tr {
 .table-label {
   padding-right: 15px;
   padding-bottom: 15px;
-  color: #d4cbb9;
   /*margin-bottom:10px;*/
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -175,7 +181,6 @@ tr {
   user-select: none;
 }
 .overlay-heading {
-  color: #d4cbb9;
   padding: 10px 0;
   margin-bottom: 10px;
   text-align: center;
@@ -189,7 +194,7 @@ tr {
   /*background-color: #ae9c7a;*/
   padding: 0px 10px;
   border-radius: 8px;
-  border: 4px solid #c2b59b;
+  border: 4px solid #ae9c7a;
   transform: translateY(-10px);
   transition: transform .2s ease-in-out;
 }

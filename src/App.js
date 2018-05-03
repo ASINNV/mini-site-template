@@ -5,6 +5,12 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 // import wave from "./images/wave2.png";
 import companyLandscape from "./images/CCHeader.png";
 
+const theWindow=window,
+  theDoc=document,
+  theEle=theDoc.documentElement,
+  theBody=theDoc.getElementsByTagName('body')[0],
+  // theWindowWidth=theWindow.innerWidth||theEle.clientWidth||theBody.clientWidth,
+  theWindowHeight=theWindow.innerHeight||theEle.clientHeight||theBody.clientHeight;
 
 class App extends Component {
   // showContactInfo(e) {
@@ -83,21 +89,49 @@ class App extends Component {
   //   }
   // }
   componentDidMount() {
+    // let foot = document.getElementById('foot');
+    // let instagram = document.getElementById('instagram-window');
+    // let rootRect = document.getElementById('root').getBoundingClientRect();
+    // let textContent = document.getElementById("text-content");
+    // // if (window.innerHeight)
+    // let footRect = document.getElementById('foot').getBoundingClientRect();
+    this.updateDimensionsAndPositioning();
+    window.addEventListener("resize", this.updateDimensionsAndPositioning.bind(this));
+    //
+    // if (theWindowHeight > footRect.y && theWindowHeight < rootRect.height) {
+    //   console.log(footRect, theWindowHeight);
+    //   foot.style.position = "absolute";
+    //   foot.style.left = "0";
+    //   foot.style.right = "0";
+    //   foot.style.top = (rootRect.height - footRect.height) + "px";
+    // } else if (theWindowHeight > footRect.y && theWindowHeight > rootRect.height) {
+    //   foot.style.position = "absolute";
+    //   foot.style.left = "0";
+    //   foot.style.right = "0";
+    //   foot.style.bottom = "0";
+    // }
+
+    // instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensionsAndPositioning.bind(this));
+  }
+
+  updateDimensionsAndPositioning() {
     let foot = document.getElementById('foot');
     let instagram = document.getElementById('instagram-window');
     let rootRect = document.getElementById('root').getBoundingClientRect();
     let textContent = document.getElementById("text-content");
     // if (window.innerHeight)
     let footRect = document.getElementById('foot').getBoundingClientRect();
-    let windowHeight = window.innerHeight;
 
-    if (windowHeight > footRect.y && windowHeight < rootRect.height) {
-      console.log(footRect, windowHeight);
+    if (theWindowHeight > footRect.y && theWindowHeight < rootRect.height) {
+      console.log(footRect, theWindowHeight);
       foot.style.position = "absolute";
       foot.style.left = "0";
       foot.style.right = "0";
       foot.style.top = (rootRect.height - footRect.height) + "px";
-    } else if (windowHeight > footRect.y && windowHeight > rootRect.height) {
+    } else if (theWindowHeight > footRect.y && theWindowHeight > rootRect.height) {
       foot.style.position = "absolute";
       foot.style.left = "0";
       foot.style.right = "0";
@@ -106,6 +140,7 @@ class App extends Component {
 
     instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
   }
+
   showInformation(e) {
     let overlay = document.getElementById('overlay');
     let card = document.getElementById('card');
@@ -249,7 +284,7 @@ class App extends Component {
         </div>
 
 
-        <footer id="foot" className="bg-gray text-gray">
+        <footer id="foot" className="text-gray">
           <p className="footer-element">2018 &copy; [YOUR NAME HERE]</p>
           <p className="footer-element">powered by <a className="ams-plug" href="https://andmoorestudios.xyz">And Moore Studios</a></p>
         </footer>
