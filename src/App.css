@@ -88,6 +88,7 @@ header {
 #foot {
   background: #c2b59b;
   background: linear-gradient(#c2b59b, #ae9c7a);
+  color: #444;
 }
 .bg-dark-gray {
   background-color: #3f3522;
@@ -140,6 +141,7 @@ header {
   align-items: center;
 }
 #contact-expander {
+  width: 300px;
   text-align: center;
   padding: 10px 0;
   border-radius: 8px;
@@ -280,7 +282,7 @@ tr {
   margin: 0 auto;
 }
 .text-white {
-  color: #fff;
+  color: #444;
 }
 .text-light-gray {
   color: #d8d8d8;
@@ -460,11 +462,10 @@ tr {
   }
 
   #foot {
-    color: #d4cbb9;
     padding: 10px 0;
   }
   #foot a {
-    color: #d4d4d4;
+    color: #333;
   }
   .footer-element {
     /*display: block;*/
@@ -583,11 +584,7 @@ tr {
     opacity: 1 !important;
   }
   #foot {
-    color: #d4d4d4;
     padding: 0;
-  }
-  #foot a {
-    color: #d4d4d4;
   }
   .footer-element {
     display: inline-block;
@@ -608,7 +605,7 @@ tr {
     transform: translateY(-2px) !important;
   }
   #contact-expander {
-    margin: 20px 0;
+    margin: 20px auto;
     cursor: pointer; /* to counteract the cursor setting above */
     /*transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);*/
   }
@@ -701,11 +698,7 @@ tr {
   }
 
   #foot {
-    color: #d4d4d4;
     padding: 0;
-  }
-  #foot a {
-    color: #d4d4d4;
   }
   .footer-element {
     display: inline-block;
@@ -726,7 +719,7 @@ tr {
     transform: translateY(-2px) !important;
   }
   #contact-expander {
-    margin: 30px 0;
+    margin: 30px auto;
   }
   #card {
     padding: 15px 30px;
@@ -817,11 +810,7 @@ tr {
     word-wrap: break-word;
   }
   #foot {
-    color: #d4d4d4;
     padding: 0;
-  }
-  #foot a {
-    color: #d4d4d4;
   }
   .footer-element {
     display: inline-block;
@@ -914,11 +903,7 @@ tr {
     word-wrap: break-word;
   }
   #foot {
-    color: #d4d4d4;
     padding: 0;
-  }
-  #foot a {
-    color: #d4d4d4;
   }
   .footer-element {
     display: inline-block;
