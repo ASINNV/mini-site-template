@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 // import wave from "./images/wave2.png";
-import poly from "./images/polygon.png";
+import companyLandscape from "./images/CCHeader.png";
 
 
 class App extends Component {
@@ -144,7 +144,7 @@ class App extends Component {
             {/*<h1>[COMPANY NAME]</h1>*/}
           </div>
 
-          <img src={poly} alt="" className="wave d-block"/>
+          <img src={companyLandscape} alt="" className="wave d-block"/>
 
           <div id="parent-content" className="bg-light-gray">
             <div id="content" className="content-container t-align-left hor-container-margin">
