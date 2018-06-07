@@ -141,7 +141,6 @@ header {
   align-items: center;
 }
 #contact-expander {
-  width: 300px;
   text-align: center;
   padding: 10px 0;
   border-radius: 8px;
@@ -551,6 +550,11 @@ tr {
     padding: 10px 25px;
     border-radius: 8px;
     font-size: 1.25em;
+  }
+  #contact-expander {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .contact-info-group {
     display: inline-block;
