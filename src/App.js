@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import logo from './images/Logo.svg';
 import './App.css';
+
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import InstagramEmbed from 'react-instagram-embed';
-// import wave from "./images/wave2.png";
-// import companyLandscape from "./images/CCHeader.png";
-import companyLandscape from "./images/Bar1800.png";
+
+// import globeIcon from "./images/GlobeIcon.svg";
+import certIcon from "./images/CertIcon.svg";
+import leafIcon from "./images/LeafIcon.svg";
 
 // const theWindow=window,
 //   theDoc=document,
@@ -182,10 +184,11 @@ class App extends Component {
 
           <div id="identity" className="brand-container">
             <img src={logo} className="logo" alt="logo" />
-            {/*<h1>[COMPANY NAME]</h1>*/}
+            <p className="slogan">“Reppin' the Emerald Empire”</p>
           </div>
 
-          <img src={companyLandscape} alt="" className="wave d-block"/>
+          {/*<img src={companyLandscape} alt="" className="wave d-block"/>*/}
+          <div className="wave d-block"></div>
 
           <div id="parent-content" className="bg-light-gray">
             <div id="content" className="content-container t-align-left hor-container-margin">
@@ -240,6 +243,16 @@ class App extends Component {
                   {/*<a href=""><i className="fa fa-snapchat-square social-icon"/></a>*/}
                   {/*</div>*/}
                   <p id="contact-expander" onClick={this.showInformation.bind(this)}>SHOW CONTACT INFO</p>
+                </div>
+                <div className="certification-pairs-container">
+                  <div className="certification-pair">
+                    <img src={certIcon} alt="" className="certification-icons"/>
+                    <p>Certified Organic</p>
+                  </div>
+                  <div className="certification-pair">
+                    <img src={leafIcon} alt="" className="certification-icons"/>
+                    <p>Grade A</p>
+                  </div>
                 </div>
               </div>
               <div className="d-inline-block w-side vert-align-top hidden-mobile">

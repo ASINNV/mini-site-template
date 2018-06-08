@@ -50,12 +50,15 @@ header {
 
 #instagram-window, #text-content {
   /*background: #fff;*/
+  background: #222;
   /*background: linear-gradient(#222, #222);*/
+  background: #222;
   background: linear-gradient(#222, #222);
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
   /*border: 2px solid #fff;*/
 }
 #contact-expander, #overlay-button, #social {
+  background: #222;
   background: linear-gradient(#222, #222);
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
   transition: box-shadow .1s ease-in-out;
@@ -87,10 +90,10 @@ header {
   background-color: #000;
 }
 #foot {
-  background: #000;
+  background: #222;
   background: linear-gradient(#222, #222);
   color: #fff;
-  margin-bottom: 30px;
+  margin: 30px 10px;
   border-radius: 8px;
 }
 .bg-dark-gray {
@@ -99,13 +102,16 @@ header {
 
 /*@keyframes move-text {*/
   /*0% {*/
-    /*background: linear-gradient(#222, #222);*/
+/*background: #222;*/
+/*background: linear-gradient(#222, #222);*/
   /*}*/
   /*50% {*/
-    /*background: linear-gradient(#222, #222);*/
+/*background: #222;*/
+/*background: linear-gradient(#222, #222);*/
   /*}*/
   /*100% {*/
-    /*background: linear-gradient(#222, #222);*/
+/*background: #222;*/
+/*background: linear-gradient(#222, #222);*/
   /*}*/
 /*}*/
 #app-container {
@@ -133,7 +139,23 @@ header {
   -ms-user-select: none;
   user-select: none;
 }
-
+.certification-pairs-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.certification-pair {
+  margin-right: 30px;
+}
+.certification-pair p, .certification-pair img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.certification-icons {
+  height: 45px;
+  margin: 15px;
+}
 /*@keyframes App-logo-spin {*/
   /*from { transform: rotate(0deg); }*/
   /*to { transform: rotate(360deg); }*/
@@ -155,6 +177,9 @@ header {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+#contact-expander, #overlay-button {
+  background: #333;
 }
 #overlay {
   background-color: rgba(0,0,0,0.8);
@@ -307,6 +332,25 @@ tr {
   border-radius: 8px;
 }
 
+.brand-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.logo {
+}
+.slogan {
+  font-size: 1em;
+  font-style: italic;
+  font-family: "Kaushan Script";
+}
+.wave {
+  width: 100%;
+  height: 8px;
+  margin: 30px 0;
+}
 #parent-content {
   padding: 0;
 }
@@ -317,10 +361,6 @@ tr {
   /*align-items: center;*/
 
   border-radius: 8px;
-}
-.wave {
-  width: 100%;
-  transform: translateY(2px);
 }
 
 /*.footer-element {*/
@@ -377,11 +417,16 @@ tr {
   html {
     font-size: 18px;
   }
-  .brand-container {
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
   .logo {
+    height: 75px;
+  }
+  .certification-icons {
+    height: 30px;
+    margin-right: 10px;
+  }
+  .wave {
+    background: url(./images/Bar320.png) 50% 50% no-repeat;
+    background-size: cover;
   }
   .content-container, #foot {
     /*width: 90%;*/
@@ -423,9 +468,9 @@ tr {
     /*z-index: 1;*/
   /*}*/
 
-  #inner-content {
-    padding: 30px 0;
-  }
+  /*#inner-content {*/
+    /*padding: 30px 0;*/
+  /*}*/
 
   #text-content {
     padding: 10px;
@@ -477,12 +522,19 @@ tr {
 }
 
 @media (min-width: 600px) {
-  .brand-container {
-    margin-top: 40px;
-    margin-bottom: 30px;
+  .certification-icons {
+    height: 45px;
+    margin-right: 15px;
   }
   .logo {
-
+    height: 100px;
+  }
+  .slogan {
+    font-size: 1.25em;
+  }
+  .wave {
+    background: url(./images/Bar600.png) 50% 50% no-repeat;
+    background-size: cover;
   }
   .hor-container-margin {
     /*width: 90%;*/
@@ -582,7 +634,7 @@ tr {
   }
   #foot {
     padding: 0;
-    margin-bottom: 30px;
+    margin: 30px auto;
   }
   .footer-element {
     display: inline-block;
@@ -701,6 +753,16 @@ tr {
 /*}*/
 
 @media (min-width: 900px) {
+  .logo {
+    height: 125px;
+  }
+  .slogan {
+    font-size: 1.5em;
+  }
+  .wave {
+    background: url(./images/Bar900.png) 50% 50% no-repeat;
+    background-size: cover;
+  }
   .social-icon {
     transition: color .2s ease-in-out, transform .2s ease-in-out !important;
   }
@@ -715,10 +777,6 @@ tr {
   #card {
     padding: 15px 30px;
     border-radius: 8px;
-  }
-  .brand-container {
-    margin-top: 40px;
-    margin-bottom: 40px;
   }
   .logo {
   }
@@ -759,11 +817,11 @@ tr {
     width: 46%;
     display: inline-block;
   }
-  #parent-content {
-    padding: 30px 0;
-  }
+  /*#parent-content {*/
+    /*padding: 30px 0;*/
+  /*}*/
   #inner-content {
-    padding: 0 30px 30px 0;
+    padding-right: 30px;
     cursor: default;
   }
   #text-content div div:first-child {
@@ -806,11 +864,22 @@ tr {
   }
 }
 @media (min-width: 1200px) {
+  .logo {
+    height: 150px;
+  }
+  .wave {
+    background: url(./images/Bar1200.png) 50% 50% no-repeat;
+    background-size: cover;
+  }
   .content-container, #foot {
     width: 1000px;
   }
 }
 @media (min-width: 1800px) {
+  .wave {
+    background: url(./images/Bar1800.png) 50% 50% no-repeat;
+    background-size: cover;
+  }
   .social-icon {
     transition: color .2s ease-in-out, transform .2s ease-in-out !important;
   }
@@ -821,10 +890,6 @@ tr {
   #card {
     padding: 15px 30px;
     border-radius: 8px;
-  }
-  .brand-container {
-    margin-top: 40px;
-    margin-bottom: 40px;
   }
   .logo {
   }
