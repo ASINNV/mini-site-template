@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './images/Logo.svg';
 import './App.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+// import InstagramEmbed from 'react-instagram-embed';
 // import wave from "./images/wave2.png";
-import companyLandscape from "./images/CCHeader.png";
+// import companyLandscape from "./images/CCHeader.png";
+import companyLandscape from "./images/Bar1800.png";
 
 const theWindow=window,
   theDoc=document,
@@ -167,9 +169,9 @@ class App extends Component {
       <div id="app-container" className="ta-center">
 
 
-        <header className="hor-pad-20 bg-gray">
-          <p className="text-white vert-pad-10">full website coming soon!</p>
-        </header>
+        {/*<header className="hor-pad-20 bg-gray">*/}
+          {/*<p className="text-white vert-pad-10">full website coming soon!</p>*/}
+        {/*</header>*/}
 
 
         <div id="app-body" className="text-gray">
@@ -206,9 +208,8 @@ class App extends Component {
 
                 </div>
                 <div className="d-inline-block w-side vert-align-middle hidden-mobile">
-                  <div className="">
-                    <p id="instagram-window" className="">Photo / Feed</p>
-                  </div>
+                  <div id="instagram-window" className=""></div>
+                  {/*<div id="instagram-window" className=""><InstagramEmbed url="https://www.instagram.com/p/BerunZvhGG6/" maxWidth={false} hideCaption={true} containerTagName="div" protocol='' injectScript onLoading={() => {}} onSuccess={() => {}} onAfterRender={() => {}} onFailure={() => {}}/></div>*/}
                 </div>
               </div>
 
@@ -224,7 +225,7 @@ class App extends Component {
                 <div className="d-inline-block w-8">
                   <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank" title="790 Port Rd, Point Arena, CA 95468"><i id="address-button" className="fa fa-map-pin social-icon"/></a>
                 </div>
-                <div className="social-icon text-medium-gray pipe">|</div>
+                <div className="social-icon pipe">|</div>
                 <div className="d-inline-block w-8">
                   <a href=""><i className="fa fa-facebook-square social-icon"/></a>
                 </div>
