@@ -90,6 +90,8 @@ header {
   background: #000;
   background: linear-gradient(#222, #222);
   color: #fff;
+  margin-bottom: 30px;
+  border-radius: 8px;
 }
 .bg-dark-gray {
   background-color: #fff;
@@ -143,10 +145,11 @@ header {
   align-items: center;
 }
 #contact-expander {
+  width: 100%;
   text-align: center;
   padding: 10px 0;
   border-radius: 8px;
-  margin: 10px 0;
+  margin: 10px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -305,7 +308,7 @@ tr {
 }
 
 #parent-content {
-  padding: 30px 0;
+  padding: 0;
 }
 
 #instagram-window {
@@ -380,7 +383,7 @@ tr {
   }
   .logo {
   }
-  .hor-container-margin {
+  .content-container, #foot {
     /*width: 90%;*/
     margin-left: 10px;
     margin-right: 10px;
@@ -397,9 +400,6 @@ tr {
   }
   .w-main {
     width: 100%;
-  }
-  #parent-content {
-    padding: 0 0 30px 0;
   }
   .contact-container {
     text-align: center;
@@ -424,7 +424,7 @@ tr {
   /*}*/
 
   #inner-content {
-    padding: 30px 0 10px 0 !important;
+    padding: 30px 0;
   }
 
   #text-content {
@@ -443,10 +443,11 @@ tr {
   #social {
     flex-wrap: wrap;
     padding: 0;
+    margin-top: 30px;
     border-radius: 8px;
   }
   #social div {
-    width: 25%;
+    width: 33%;
     text-align: center;
     padding: 10px 0;
   }
@@ -463,7 +464,7 @@ tr {
     padding: 10px 0;
   }
   #foot a {
-    color: #333;
+    color: #444;
   }
   .footer-element {
     /*display: block;*/
@@ -501,7 +502,7 @@ tr {
   .w-main {
     width: 100%;
   }
-  .content-container {
+  .content-container, #foot {
     width: 580px;
     margin: 0 auto;
   }
@@ -519,14 +520,6 @@ tr {
     display: inline-block;
   }
 
-  #inner-content {
-    padding: 30px 0 10px 0 !important;
-    cursor: default;
-  }
-  #text-content {
-    padding: 20px;
-  }
-
   .social-container {
     text-align: left;
   }
@@ -535,6 +528,7 @@ tr {
   }
   #social {
     flex-wrap: nowrap;
+    margin-top: 30px;
     padding: 20px;
   }
   #social div {
@@ -551,9 +545,9 @@ tr {
     font-size: 1.25em;
   }
   #contact-expander {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    /*width: 260px;*/
+    width: 50%;
+    margin: 0;
   }
   .contact-info-group {
     display: inline-block;
@@ -588,6 +582,7 @@ tr {
   }
   #foot {
     padding: 0;
+    margin-bottom: 30px;
   }
   .footer-element {
     display: inline-block;
@@ -597,131 +592,125 @@ tr {
     vertical-align: middle;
   }
 }
+
+/*@media (min-width: 900px) {*/
+  /*.social-icon {*/
+    /*transition: color .2s ease-in-out, transform .2s ease-in-out !important;*/
+  /*}*/
+  /*.social-icon:hover {*/
+    /*color: #000 !important;*/
+    /*!*transform: scale(1.05) !important;*!*/
+    /*transform: translateY(-2px) !important;*/
+  /*}*/
+  /*#contact-expander {*/
+    /*margin: 0;*/
+    /*cursor: pointer; !* to counteract the cursor setting above *!*/
+    /*!*transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);*!*/
+  /*}*/
+
+  /*#card {*/
+    /*padding: 15px 30px;*/
+    /*border-radius: 8px;*/
+    /*font-size: 1.5em;*/
+  /*}*/
+  /*.brand-container {*/
+    /*margin-top: 40px;*/
+    /*margin-bottom: 20px;*/
+  /*}*/
+  /*.logo {*/
+  /*}*/
+  /*.hor-container-margin {*/
+    /*!*width: 90%;*!*/
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+  /*}*/
+  /*.r-margin {*/
+    /*margin-right: 20px;*/
+  /*}*/
+  /*.vert-margin {*/
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+  /*}*/
+  /*.hidden-mobile {*/
+    /*display: inline-block;*/
+  /*}*/
+  /*.w-main {*/
+    /*width: 61.8%;*/
+  /*}*/
+  /*!*.w-full {*!*/
+    /*!*width: 800px;*!*/
+  /*!*}*!*/
+  /*.content-container, #foot {*/
+    /*width: 800px;*/
+    /*margin: 0 auto;*/
+  /*}*/
+
+  /*.contact-container {*/
+    /*text-align: left;*/
+  /*}*/
+  /*.contact-info-group {*/
+    /*display: inline-block;*/
+    /*width: 18%;*/
+    /*vertical-align: middle;*/
+  /*}*/
+  /*.contact-info-window-container {*/
+    /*width: 46%;*/
+    /*display: inline-block;*/
+  /*}*/
+  /*.social-container {*/
+    /*text-align: left;*/
+  /*}*/
+
+  /*#text-content div div:first-child {*/
+    /*padding-bottom: 20px;*/
+  /*}*/
+
+  /*.contact-info-group {*/
+    /*display: inline-block;*/
+    /*width: 18%;*/
+    /*vertical-align: middle;*/
+  /*}*/
+
+  /*.contact-info-window-container #info-window {*/
+    /*border-radius: 8px;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*background: #bcbbbb;*/
+    /*color: #fff444;*/
+    /*padding: 5px;*/
+    /*position: absolute;*/
+    /*top: -50px;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: -41px;*/
+    /*word-wrap: break-word;*/
+  /*}*/
+
+  /*#foot {*/
+    /*padding: 0;*/
+  /*}*/
+  /*.footer-element {*/
+    /*display: inline-block;*/
+    /*width: 50%;*/
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+    /*vertical-align: middle;*/
+  /*}*/
+
+/*}*/
 
 @media (min-width: 900px) {
   .social-icon {
     transition: color .2s ease-in-out, transform .2s ease-in-out !important;
   }
   .social-icon:hover {
-    color: #000 !important;
     /*transform: scale(1.05) !important;*/
     transform: translateY(-2px) !important;
   }
   #contact-expander {
-    margin: 20px auto;
-    cursor: pointer; /* to counteract the cursor setting above */
-    /*transition: background-color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96), color .2s cubic-bezier(0.46, 0.03, 0.52, 0.96);*/
-  }
-
-  #card {
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1.5em;
-  }
-  .brand-container {
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
-  .logo {
-  }
-  .hor-container-margin {
-    /*width: 90%;*/
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .r-margin {
-    margin-right: 20px;
-  }
-  .vert-margin {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .hidden-mobile {
-    display: inline-block;
-  }
-  .w-main {
-    width: 61.8%;
-  }
-  /*.w-full {*/
-    /*width: 800px;*/
-  /*}*/
-  .content-container {
-    width: 800px;
-    margin: 0 auto;
-  }
-
-  .contact-container {
-    text-align: left;
-  }
-  .contact-info-group {
-    display: inline-block;
-    width: 18%;
-    vertical-align: middle;
-  }
-  .contact-info-window-container {
-    width: 46%;
-    display: inline-block;
-  }
-  .social-container {
-    text-align: left;
-  }
-  #inner-content {
-    padding: 20px 0 !important;
-    cursor: default;
-  }
-
-  #text-content {
-    margin-right: 20px;
-  }
-  #text-content div div:first-child {
-    padding-bottom: 20px;
-  }
-
-  .contact-info-group {
-    display: inline-block;
-    width: 18%;
-    vertical-align: middle;
-  }
-
-  .contact-info-window-container #info-window {
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #bcbbbb;
-    color: #fff444;
-    padding: 5px;
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    bottom: -41px;
-    word-wrap: break-word;
-  }
-
-  #foot {
-    padding: 0;
-  }
-  .footer-element {
-    display: inline-block;
-    width: 50%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    vertical-align: middle;
-  }
-
-}
-
-@media (min-width: 1200px) {
-  .social-icon {
-    transition: color .2s ease-in-out, transform .2s ease-in-out !important;
-  }
-  .social-icon:hover {
-    /*transform: scale(1.05) !important;*/
-    transform: translateY(-2px) !important;
-  }
-  #contact-expander {
-    margin: 30px auto;
+    margin: 0;
+    font-weight: 600;
   }
   #card {
     padding: 15px 30px;
@@ -754,9 +743,8 @@ tr {
   /*.w-full {*/
     /*width: 1000px;*/
   /*}*/
-  .content-container {
-    width: 1000px;
-    margin: 0 auto;
+  .content-container, #foot {
+    width: 800px;
   }
 
   .contact-container {
@@ -772,15 +760,11 @@ tr {
     display: inline-block;
   }
   #parent-content {
-    padding: 0 0 20px 0;
+    padding: 30px 0;
   }
   #inner-content {
-    padding: 30px 0 !important;
+    padding: 0 30px 30px 0;
     cursor: default;
-  }
-
-  #text-content {
-    margin-right: 30px;
   }
   #text-content div div:first-child {
     padding-bottom: 30px;
@@ -821,7 +805,11 @@ tr {
     vertical-align: middle;
   }
 }
-
+@media (min-width: 1200px) {
+  .content-container, #foot {
+    width: 1000px;
+  }
+}
 @media (min-width: 1800px) {
   .social-icon {
     transition: color .2s ease-in-out, transform .2s ease-in-out !important;
@@ -858,9 +846,8 @@ tr {
   .w-main {
     width: 61.8%;
   }
-  .content-container {
+  .content-container, #foot {
     width: 1200px;
-    margin: 0 auto;
   }
   #inner-content {
     cursor: default;
