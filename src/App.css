@@ -36,6 +36,7 @@ footer p, header p {
   user-select: none;
 }
 td {
+  text-align: left;
   line-height: 1.3em;
   color: #f3ac33;
 }
@@ -155,7 +156,6 @@ header {
 }
 .certification-icons {
   height: 45px;
-  margin: 15px;
 }
 /*@keyframes App-logo-spin {*/
   /*from { transform: rotate(0deg); }*/
@@ -339,7 +339,8 @@ tr {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 40px;
+  background: #000;
+  padding: 40px 0 30px 0;
 }
 .logo {
 }
@@ -352,7 +353,7 @@ tr {
 .wave {
   width: 100%;
   height: 8px;
-  margin: 30px 0;
+  margin-bottom: 30px;
 }
 #parent-content {
   padding: 0;
@@ -362,19 +363,59 @@ tr {
   /*display: flex;*/
   /*justify-content: center;*/
   /*align-items: center;*/
-
   border-radius: 8px;
 }
 .instagram-post {
   margin: 30px 0;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.25);
+  background: #222;
+  border-radius: 8px;
+  text-align: left !important;
+}
+.instagram-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.instagram-account-info {
+  display: flex;
+  align-items: center;
+}
+.instagram-account-info p {
+  color: #f3ac33;
+}
+.instagram-account-info img {
+  height: 40px;
+  margin-right: 10px;
   border-radius: 8px;
 }
-.instagram-post img {
-  margin-bottom: 15px;
+.instagram-date {
+  font-size: 0.9em;
+  color: #888;
+}
+.instagram-image {
   border-radius: 8px;
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.4);
+}
+.instagram-incidentals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.instagram-link {
+  color: #777;
+  text-decoration: none;
+}
+.instagram-link:hover {
+  text-decoration: underline;
+}
+.instagram-likes {
+  color: #777;
+  text-align: right;
+}
+.instagram-caption {
+  margin: 15px 0;
 }
 
 /*.footer-element {*/
@@ -441,11 +482,16 @@ tr {
     height: 30px;
     margin-right: 10px;
   }
+  .certification-pair {
+    margin: 5px auto;
+    text-align: center;
+    font-size: 0.75em;
+  }
   .wave {
     background: url(./images/Bar320.png) 50% 50% no-repeat;
     background-size: cover;
   }
-  .content-container, #foot {
+  .content-container {
     /*width: 90%;*/
     margin-left: 10px;
     margin-right: 10px;
@@ -523,7 +569,9 @@ tr {
   }
 
   #foot {
+    text-align: center;
     padding: 10px 0;
+    margin: 30px 0;
   }
   #foot a {
     color: #444;
@@ -539,10 +587,6 @@ tr {
 }
 
 @media (min-width: 600px) {
-  .certification-icons {
-    height: 45px;
-    margin-right: 15px;
-  }
   .logo {
     height: 125px;
   }
@@ -642,12 +686,16 @@ tr {
     word-wrap: break-word;
   }
 
+  .certification-icons {
+    height: 30px;
+    margin-right: 15px;
+  }
+  .certification-pair {
+    font-size: 1em;
+  }
   .window-item {
     transition: opacity .4s ease-in-out;
     opacity: 0 !important;
-  }
-  .fade-in {
-    opacity: 1 !important;
   }
   #foot {
     padding: 0;
@@ -659,6 +707,9 @@ tr {
     padding-top: 10px;
     padding-bottom: 10px;
     vertical-align: middle;
+  }
+  .fade-in {
+    opacity: 1 !important;
   }
 }
 
@@ -826,6 +877,41 @@ tr {
     width: 800px;
   }
 
+  .fixed-element {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .instagram-feed-container {
+    position: relative;
+    margin-top: 253px;
+    margin-bottom: 50px;
+    z-index: 0;
+  }
+  #app-container {
+    width: 800px;
+    margin: 0 auto;
+    text-align: right;
+  }
+  .certification-pairs-container {
+    margin-top: 20px;
+  }
+  .certification-pair p {
+    font-size: 0.75em;
+  }
+  #foot {
+    width: auto;
+    text-align: center;
+    margin: 20px 0;
+  }
+  h2 {
+    font-size: 1.75em;
+  }
+
+
   .contact-container {
     text-align: left;
   }
@@ -885,8 +971,11 @@ tr {
   }
 }
 @media (min-width: 1200px) {
+  h2 {
+    font-size: 2em;
+  }
   .logo {
-    height: 150px;
+    height: 125px;
   }
   .wave {
     background: url(./images/Bar1200.png) 50% 50% no-repeat;
@@ -894,6 +983,28 @@ tr {
   }
   .content-container, #foot {
     width: 1000px;
+  }
+  .instagram-feed-container {
+    position: relative;
+    margin-top: 254px;
+    margin-bottom: 22px;
+    z-index: 0;
+  }
+  #app-container {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: right;
+  }
+  .certification-pairs-container {
+    margin-top: 30px;
+  }
+  .certification-pair p {
+    font-size: 1em;
+  }
+  #foot {
+    width: auto;
+    text-align: center;
+    margin: 30px 0;
   }
 }
 @media (min-width: 1800px) {
@@ -935,6 +1046,23 @@ tr {
   .content-container, #foot {
     width: 1200px;
   }
+
+  .instagram-feed-container {
+    position: relative;
+    margin-top: 253px;
+    margin-bottom: 50px;
+    z-index: 0;
+  }
+  #app-container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: right;
+  }
+  #foot {
+    width: auto;
+    text-align: center;
+  }
+
   #inner-content {
     cursor: default;
   }
