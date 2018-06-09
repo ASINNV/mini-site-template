@@ -102,7 +102,7 @@ class App extends Component {
   // }
   componentDidMount() {
     let myThis = this;
-    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=185899813.dc48f09.855aa159b2a343c993f8de5697a085df')
+    fetch('INSTAGRAM_API_URI_WITH_ACCESS_TOKEN')
       .then((res) => {
         return res.json();
       })
@@ -190,18 +190,6 @@ class App extends Component {
         overlay.style.zIndex = -1;
       }, 200);
     }
-  }
-  getInstagram() {
-    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=185899813.dc48f09.855aa159b2a343c993f8de5697a085df')
-      .then(function(res) {
-        return res.json();
-      })
-      .then(function(data) {
-        console.log('This is the data: ', data);
-      })
-      .catch(function(err) {
-        console.log(err, 'error error error');
-      })
   }
   render() {
     console.log("Data: ", this.state.posts);
@@ -299,10 +287,6 @@ class App extends Component {
                   }) : console.log("DAMN NOT AGAIN")}
                 </ul>
               </div>
-              <p onClick={this.getInstagram.bind(this)}>CLICK ME!</p>
-
-
-
 
 
               <div id="overlay" onClick={this.hideInformation.bind(this)}>
