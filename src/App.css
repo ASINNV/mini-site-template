@@ -770,6 +770,9 @@ tr {
 /*}*/
 
 @media (min-width: 900px) {
+  .certification-pairs-container {
+    flex-wrap: nowrap;
+  }
   h2 {
     font-size: 2em;
   }

@@ -102,7 +102,7 @@ class App extends Component {
   // }
   componentDidMount() {
     let myThis = this;
-    fetch('INSTAGRAM_API_URI_WITH_ACCESS_TOKEN')
+    fetch('API_URI_HERE')
       .then((res) => {
         return res.json();
       })
@@ -283,7 +283,12 @@ class App extends Component {
                 <div id="instagram-window" className=""><InstagramEmbed url="https://www.instagram.com/p/BerunZvhGG6/" maxWidth={false} hideCaption={true} containerTagName="div" protocol='' injectScript onLoading={() => {}} onSuccess={() => {}} onAfterRender={() => {}} onFailure={() => {}}/></div>
                 <ul id="instagram-feed">
                   {this.state.posts !== undefined ? this.state.posts.map((post, i) => {
-                    return <div className="instagram-post" key={i}><li><img src={post.images.low_resolution.url} width="100%" alt={post.images.low_resolution.url} /></li><p>{post.caption !== null ? post.caption.text : "Didn't work."}</p></div>
+                    if (post.type === 'video') {
+                      return <div className="instagram-post" key={i}><li><video controls={true} src={post.videos.low_bandwidth.url} width="100%" alt={post.videos.low_bandwidth.url} /></li><p>{post.caption !== null ? post.caption.text : "Didn't work."}</p></div>
+                    } else {
+                      return <div className="instagram-post" key={i}><li><img src={post.images.low_resolution.url} width="100%" alt={post.images.low_resolution.url} /></li><p>{post.caption !== null ? post.caption.text : "Didn't work."}</p></div>
+                    }
+
                   }) : console.log("DAMN NOT AGAIN")}
                 </ul>
               </div>
