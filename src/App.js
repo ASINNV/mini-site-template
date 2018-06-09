@@ -17,6 +17,14 @@ import leafIcon from "./images/LeafIcon.svg";
 //   theWindowHeight=theWindow.innerHeight||theEle.clientHeight||theBody.clientHeight;
 
 class App extends Component {
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      posts: [],
+    };
+
+  }
   // showContactInfo(e) {
   //   let infoWindow = document.getElementById('info-window');
   //
@@ -93,6 +101,19 @@ class App extends Component {
   //   }
   // }
   componentDidMount() {
+    let myThis = this;
+    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=185899813.dc48f09.855aa159b2a343c993f8de5697a085df')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log('This is the data: ', data);
+        myThis.setState({ posts: data.data });
+      })
+      .catch((err) => {
+        console.log(err, 'error error error');
+      });
+
     // let foot = document.getElementById('foot');
     // let instagram = document.getElementById('instagram-window');
     // let rootRect = document.getElementById('root').getBoundingClientRect();
@@ -170,7 +191,21 @@ class App extends Component {
       }, 200);
     }
   }
+  getInstagram() {
+    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=185899813.dc48f09.855aa159b2a343c993f8de5697a085df')
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(data) {
+        console.log('This is the data: ', data);
+      })
+      .catch(function(err) {
+        console.log(err, 'error error error');
+      })
+  }
   render() {
+    console.log("Data: ", this.state.posts);
+
     return (
       <div id="app-container" className="ta-center">
 
@@ -247,18 +282,24 @@ class App extends Component {
                 <div className="certification-pairs-container">
                   <div className="certification-pair">
                     <img src={certIcon} alt="" className="certification-icons"/>
-                    <p>Certified Organic</p>
+                    <p>Clean Green Certified</p>
                   </div>
                   <div className="certification-pair">
                     <img src={leafIcon} alt="" className="certification-icons"/>
-                    <p>Grade A</p>
+                    <p>Flowers, Extracts, & Genetics</p>
                   </div>
                 </div>
               </div>
               <div className="d-inline-block w-side vert-align-top hidden-mobile">
                 {/*<div id="instagram-window" className=""></div>*/}
                 <div id="instagram-window" className=""><InstagramEmbed url="https://www.instagram.com/p/BerunZvhGG6/" maxWidth={false} hideCaption={true} containerTagName="div" protocol='' injectScript onLoading={() => {}} onSuccess={() => {}} onAfterRender={() => {}} onFailure={() => {}}/></div>
+                <ul id="instagram-feed">
+                  {this.state.posts !== undefined ? this.state.posts.map((post, i) => {
+                    return <div className="instagram-post" key={i}><li><img src={post.images.low_resolution.url} width="100%" alt={post.images.low_resolution.url} /></li><p>{post.caption !== null ? post.caption.text : "Didn't work."}</p></div>
+                  }) : console.log("DAMN NOT AGAIN")}
+                </ul>
               </div>
+              <p onClick={this.getInstagram.bind(this)}>CLICK ME!</p>
 
 
 
