@@ -172,7 +172,7 @@ class App extends Component {
   // }
   componentDidMount() {
     let myThis = this;
-    fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=185899813.1c4ae4b.3587f256b235441b9614350ae394af0c')
+    fetch(process.env.REACT_APP_API_ENDPOINT)
       .then((res) => {
         return res.json();
       })
