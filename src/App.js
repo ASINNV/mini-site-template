@@ -176,6 +176,8 @@ class App extends Component {
   // }
   componentWillUnmount() {
     window.scrollTo(0, 0);
+    window.removeEventListener("scroll", this.checkPosition.bind(this));
+    window.removeEventListener("resize", this.setDimensions.bind(this));
   }
   componentWillMount() {
     // window.scrollTo(0, 0);
@@ -233,9 +235,6 @@ class App extends Component {
 
     // instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
   }
-  componentWillUnmount() {
-    // window.removeEventListener("resize", this.updateDimensionsAndPositioning.bind(this));
-  }
 
   // updateDimensionsAndPositioning() {
   //   let foot = document.getElementById('foot');
@@ -289,10 +288,11 @@ class App extends Component {
     let feed = document.getElementById('feed-shell');
     let content = document.getElementById('content');
     let contentRect = content.getBoundingClientRect();
+    let smallGoldenRatio = 0.382;
 
     feed.style.top = textRect.y + "px";
     feed.style.left = textRect.left + textRect.width + 30 + "px";
-    feed.style.width = (contentRect.width * .382) + "px";
+    feed.style.width = (contentRect.width * smallGoldenRatio) + "px";
   }
   checkPosition(e) {
     let fixer = document.getElementById('fixer');
@@ -309,14 +309,16 @@ class App extends Component {
     // if (fixerRect.height)
     // console.log("fixerRect: ", fixerRect);
     // console.log("fixerRect height: ", fixerRect.height);
-    console.log("fixerRect y: ", fixerRect.y);
+    // console.log("fixerRect y: ", fixerRect.y);
     // console.log("currentFixer: ", this.state.currentFixer);
     // console.log("lastFixer: ", this.state.lastFixer);
-    // console.log("feedRect y: ", feedRect.y);
+    console.log("feedRect y: ", feedRect.y);
     // console.log("currentFeed: ", this.state.currentFeed);
-    console.log("lastFeed: ", this.state.lastFeed);
+    // console.log("lastFeed: ", this.state.lastFeed);
     console.log("textRect Y: ", textRect.y);
-    console.log("the equation: ", (textRect.y - (fixerRect.height - window.innerHeight)));
+    // console.log("the equation: ", (textRect.y - (fixerRect.height - window.innerHeight)));
+    // console.log("lastFeed = ", this.state.lastFeed);
+    // console.log("FIXER RECT Y = ", fixerRect.y);
 
     // console.log("window.innerHeight: ", window.innerHeight);
     //
@@ -325,9 +327,16 @@ class App extends Component {
     // console.log("feedRect y: ", feedRect.y);
     // console.log("window.innerHeight: ", window.innerHeight);
 
-    if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= ((fixerRect.height - window.innerHeight) - feedRect.y)) {
-      console.log(this.state.lastFeed, feedRect.y, fixerRect.height - window.innerHeight);
-      console.log("this.state.lastFeed", "feedRect.y", "fixerRect.height - window.innerHeight");
+    // if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= ((fixerRect.height - window.innerHeight) - feedRect.y)) {
+    //   console.log(this.state.lastFeed, feedRect.y, fixerRect.height - window.innerHeight);
+    //   console.log("this.state.lastFeed", "feedRect.y", "fixerRect.height - window.innerHeight");
+    //   fixer.style.top = 0;
+    //   fixer.style.position = "static";
+
+    if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= textRect.y) {
+      console.log('height - windowHeight = ', ((fixerRect.height - window.innerHeight) - feedRect.y));
+      // console.log(this.state.lastFeed, feedRect.y, fixerRect.height - window.innerHeight);
+      // console.log("this.state.lastFeed", "feedRect.y", "fixerRect.height - window.innerHeight");
       fixer.style.top = 0;
       fixer.style.position = "static";
     } else if (fixerRect.height > window.innerHeight && Math.abs(fixerRect.y) >= (fixerRect.height - window.innerHeight)) {
