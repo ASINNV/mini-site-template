@@ -247,7 +247,7 @@ class App extends Component {
                     </div>
 
                     <div className="d-inline-block w-8">
-                      <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank" title="790 Port Rd, Point Arena, CA 95468"><i id="address-button" className="fa fa-map-pin social-icon"/></a>
+                      <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank" title="790 Port Rd, Point Arena, CA 95468"><i id="address-button" className="fa fa-globe social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8 hidden-desktop">
@@ -283,7 +283,7 @@ class App extends Component {
                   </div>
                   <footer id="foot" className="text-gray">
                     <p className="footer-element">2018 &copy; Cowboy Chronic Brand&trade;</p>
-                    <p className="footer-element">powered by <a className="ams-plug" href="https://andmoorestudios.xyz">And Moore Studios</a></p>
+                    <p className="footer-element">Powered by <a className="ams-plug" href="https://andmoorestudios.xyz">And Moore Studios&#8480;</a></p>
                   </footer>
                 </div>
               </div>
@@ -333,15 +333,15 @@ class App extends Component {
               <table>
                 <tbody>
                 <tr>
-                  <td className="table-label">phone</td>
+                  <td className="table-label">Phone</td>
                   <td>(707) 882-5555</td>
                 </tr>
                 <tr>
-                  <td className="table-label">email</td>
+                  <td className="table-label">Email</td>
                   <td>companyemail@gmail.com</td>
                 </tr>
                 <tr>
-                  <td className="table-label">address</td>
+                  <td className="table-label">Address</td>
                   <td>
                     <table>
                       <tbody>
@@ -356,7 +356,7 @@ class App extends Component {
                 </tr>
                 </tbody>
               </table>
-              <div id="overlay-button" onClick={this.hideInformation.bind(this)}>close window</div>
+              <div id="overlay-button" onClick={this.hideInformation.bind(this)}>Close Window</div>
             </div>
 
           </div>
