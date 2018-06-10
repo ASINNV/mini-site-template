@@ -118,6 +118,18 @@ header {
 /*}*/
 #app-container {
   background-color: #000;
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .no-line-height {
@@ -555,7 +567,7 @@ tr {
     border-radius: 8px;
   }
   #social div {
-    width: 33%;
+    width: 25%;
     text-align: center;
     padding: 10px 0;
   }
@@ -646,7 +658,6 @@ tr {
   }
   #social div {
     width: auto;
-    text-align: left;
     padding: 0;
   }
   .pipe {
@@ -821,6 +832,9 @@ tr {
 /*}*/
 
 @media (min-width: 900px) {
+  #social div {
+    width: 33%;
+  }
   .certification-pairs-container {
     flex-wrap: nowrap;
   }
@@ -867,6 +881,9 @@ tr {
   .hidden-mobile {
     display: inline-block;
   }
+  .hidden-desktop {
+    display: none;
+  }
   .w-main {
     width: 61.8%;
   }
@@ -876,23 +893,29 @@ tr {
   .content-container, #foot {
     width: 800px;
   }
-
-  .fixed-element {
-    position: fixed;
-    top: 0;
+  #fixer {
     left: 0;
     right: 0;
-    bottom: 0;
+  }
+  .instagram-post:first-child {
+    margin-top: 0;
+  }
+  .fixed-element {
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
     z-index: 1;
   }
   .instagram-feed-container {
-    position: relative;
-    margin-top: 253px;
-    margin-bottom: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
     z-index: 0;
   }
   #app-container {
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
     text-align: right;
   }
@@ -984,17 +1007,12 @@ tr {
   .content-container, #foot {
     width: 1000px;
   }
-  .instagram-feed-container {
-    position: relative;
-    margin-top: 254px;
-    margin-bottom: 22px;
-    z-index: 0;
-  }
-  #app-container {
-    width: 1000px;
-    margin: 0 auto;
-    text-align: right;
-  }
+
+  /*#app-container {*/
+    /*width: 1000px;*/
+    /*margin: 0 auto;*/
+    /*text-align: right;*/
+  /*}*/
   .certification-pairs-container {
     margin-top: 30px;
   }
@@ -1047,17 +1065,12 @@ tr {
     width: 1200px;
   }
 
-  .instagram-feed-container {
-    position: relative;
-    margin-top: 253px;
-    margin-bottom: 50px;
-    z-index: 0;
-  }
-  #app-container {
-    width: 1200px;
-    margin: 0 auto;
-    text-align: right;
-  }
+
+  /*#app-container {*/
+    /*width: 1200px;*/
+    /*margin: 0 auto;*/
+    /*text-align: right;*/
+  /*}*/
   #foot {
     width: auto;
     text-align: center;

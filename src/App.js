@@ -92,6 +92,10 @@ class App extends Component {
 
     this.state = {
       posts: [],
+      lastFixer: 0,
+      currentFixer: 0,
+      lastFeed: 0,
+      currentFeed: 0
     };
 
   }
@@ -170,19 +174,36 @@ class App extends Component {
   //     infoWindow.removeChild(infoWindow.childNodes[i]);
   //   }
   // }
-  componentDidMount() {
-    let myThis = this;
-    fetch(process.env.REACT_APP_API_ENDPOINT)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log('This is the data: ', data);
-        myThis.setState({ posts: data.data });
-      })
-      .catch((err) => {
-        console.log(err, 'error error error');
-      });
+  componentWillUnmount() {
+    window.scrollTo(0, 0);
+  }
+  componentWillMount() {
+    // window.scrollTo(0, 0);
+  }
+  componentDidMount(e) {
+    // window.scrollTo(0, 0);
+
+    if (window.innerWidth > 900) {
+      this.setDimensions();
+
+      window.addEventListener("scroll", this.checkPosition.bind(this));
+      window.addEventListener("resize", this.setDimensions.bind(this));
+
+      let myThis = this;
+
+      fetch(process.env.REACT_APP_API_ENDPOINT)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log('This is the data: ', data);
+          myThis.setState({ posts: data.data, lastFixer: myThis.state.lastFixer, currentFixer: myThis.state.currentFixer, lastFeed: myThis.state.lastFeed, currentFeed: myThis.state.currentFeed});
+        })
+        .catch((err) => {
+          console.log(err, 'error error error');
+        });
+    }
+
 
     // let foot = document.getElementById('foot');
     // let instagram = document.getElementById('instagram-window');
@@ -261,8 +282,69 @@ class App extends Component {
       }, 200);
     }
   }
+
+  setDimensions() {
+    let textContent = document.getElementById('text-content');
+    let textRect = textContent.getBoundingClientRect();
+    let feed = document.getElementById('feed-shell');
+    let content = document.getElementById('content');
+    let contentRect = content.getBoundingClientRect();
+
+    feed.style.top = textRect.y + "px";
+    feed.style.left = textRect.left + textRect.width + 30 + "px";
+    feed.style.width = (contentRect.width * .382) + "px";
+  }
+  checkPosition(e) {
+    let fixer = document.getElementById('fixer');
+    let fixerRect = fixer.getBoundingClientRect();
+
+    let feedShell = document.getElementById('feed-shell');
+    let feedRect = feedShell.getBoundingClientRect();
+
+    let textContent = document.getElementById('text-content');
+    let textRect = textContent.getBoundingClientRect();
+
+    this.setState({ posts: this.state.posts, lastFixer: this.state.currentFixer, currentFixer: fixerRect.y, lastFeed: this.state.currentFeed, currentFeed: feedRect.y });
+
+    // if (fixerRect.height)
+    // console.log("fixerRect: ", fixerRect);
+    // console.log("fixerRect height: ", fixerRect.height);
+    console.log("fixerRect y: ", fixerRect.y);
+    // console.log("currentFixer: ", this.state.currentFixer);
+    // console.log("lastFixer: ", this.state.lastFixer);
+    // console.log("feedRect y: ", feedRect.y);
+    // console.log("currentFeed: ", this.state.currentFeed);
+    console.log("lastFeed: ", this.state.lastFeed);
+    console.log("textRect Y: ", textRect.y);
+    console.log("the equation: ", (textRect.y - (fixerRect.height - window.innerHeight)));
+
+    // console.log("window.innerHeight: ", window.innerHeight);
+    //
+    // console.log("feedRect: ", feedRect);
+    // console.log("feedRect height: ", feedRect.height);
+    // console.log("feedRect y: ", feedRect.y);
+    // console.log("window.innerHeight: ", window.innerHeight);
+
+    if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= ((fixerRect.height - window.innerHeight) - feedRect.y)) {
+      console.log(this.state.lastFeed, feedRect.y, fixerRect.height - window.innerHeight);
+      console.log("this.state.lastFeed", "feedRect.y", "fixerRect.height - window.innerHeight");
+      fixer.style.top = 0;
+      fixer.style.position = "static";
+    } else if (fixerRect.height > window.innerHeight && Math.abs(fixerRect.y) >= (fixerRect.height - window.innerHeight)) {
+      fixer.style.top = (window.innerHeight - fixerRect.height) + "px";
+      fixer.style.position = "fixed";
+
+    }
+    // else if () {
+    //   fixer.style.top = fixerRect.y + "px";
+    //   fixer.style.position = "fixed";
+    // }
+
+
+  }
+
   render() {
-    console.log("Data: ", this.state.posts);
+    // console.log("Data: ", this.state.posts);
 
     return (
       <div id="app-container" className="ta-center">
@@ -275,7 +357,7 @@ class App extends Component {
 
         <div id="app-body" className="text-gray">
 
-          <div className="fixed-element">
+          <div id="fixer" className="fixed-element">
             <div id="identity" className="brand-container">
               <img src={logo} className="logo" alt="logo" />
               <p className="slogan">“Reppin' the Emerald Empire”</p>
@@ -320,6 +402,10 @@ class App extends Component {
                     <div className="d-inline-block w-8">
                       <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank" title="790 Port Rd, Point Arena, CA 95468"><i id="address-button" className="fa fa-map-pin social-icon"/></a>
                     </div>
+
+                    <div className="d-inline-block w-8 hidden-desktop">
+                      <a href="mailto:companyname@gmail.com" title="companyname@gmail.com"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
+                    </div>
                     {/*<div className="social-icon pipe">|</div>*/}
                     {/*<div className="d-inline-block w-8">*/}
                     {/*<a href=""><i className="fa fa-facebook-square social-icon"/></a>*/}
@@ -359,7 +445,7 @@ class App extends Component {
           </div>
 
 
-          <div className="d-inline-block w-side vert-align-top instagram-feed-container hidden-mobile">
+          <div id="feed-shell" className="d-inline-block w-side vert-align-top instagram-feed-container hidden-mobile">
             {/*<div id="instagram-window" className=""></div>*/}
             {/*<div id="instagram-window" className=""><InstagramEmbed url="https://www.instagram.com/p/BerunZvhGG6/" maxWidth={false} hideCaption={true} containerTagName="div" protocol='' injectScript onLoading={() => {}} onSuccess={() => {}} onAfterRender={() => {}} onFailure={() => {}}/></div>*/}
             <ul id="instagram-feed">
