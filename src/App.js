@@ -76,8 +76,8 @@ class InstagramPost extends Component {
         {this.props.visualContent}
         <p className="instagram-caption">{this.props.captionContent}</p>
         <div className="instagram-incidentals">
-          <a className="instagram-link" href="https://www.instagram.com/cowboychronicbrand/" target="_blank" rel="noopener noreferrer">View More on Instagram</a>
           {<p className="instagram-likes">{this.props.postLikes} likes</p>}
+          <a className="instagram-link" href="https://www.instagram.com/cowboychronicbrand/" target="_blank" rel="noopener noreferrer">View More on Instagram</a>
         </div>
 
 
@@ -99,91 +99,14 @@ class App extends Component {
     };
 
   }
-  // showContactInfo(e) {
-  //   let infoWindow = document.getElementById('info-window');
-  //
-  //   if (infoWindow.childNodes.length > 0) {
-  //     for (let i = 0; i < infoWindow.childNodes.length; i++) {
-  //       infoWindow.removeChild(infoWindow.childNodes[i]);
-  //     }
-  //   }
-  //
-  //   let phone = document.createElement('p');
-  //   phone.innerText = '(555) 555-5555';
-  //
-  //   let email = document.createElement('p');
-  //   email.innerText = 'companyemail@email.com';
-  //
-  //
-  //   let address = document.createElement('div');
-  //
-  //   let first = document.createElement('p');
-  //   first.innerText = "[COMPANY NAME]";
-  //
-  //   let second = document.createElement('p');
-  //   second.innerText = "[COMPANY STREET]";
-  //
-  //   let third = document.createElement('p');
-  //   third.innerText = "[COMPANY CITY]";
-  //
-  //   phone.className += " window-item";
-  //   email.className += " window-item";
-  //   address.className += " window-item";
-  //   first.className = "no-line-height";
-  //   second.className = "no-line-height";
-  //   third.className = "no-line-height";
-  //
-  //   address.appendChild(first);
-  //   address.appendChild(document.createElement('br'));
-  //   address.appendChild(second);
-  //   address.appendChild(document.createElement('br'));
-  //   address.appendChild(third);
-  //
-  //   if (e.target.id === 'phone-button') {
-  //
-  //   }
-  //   switch (e.target.id) {
-  //     case "phone-button":
-  //       infoWindow.appendChild(phone);
-  //       setTimeout(() => {
-  //         phone.className += " fade-in";
-  //       }, 50);
-  //       break;
-  //     case "email-button":
-  //       infoWindow.appendChild(email);
-  //       setTimeout(() => {
-  //         email.className += " fade-in";
-  //       }, 50);
-  //       break;
-  //     case "address-button":
-  //       infoWindow.appendChild(address);
-  //       setTimeout(() => {
-  //         address.className += " fade-in";
-  //       }, 50);
-  //       break;
-  //     default:
-  //       console.log('oops, hit the default. see line 25 of App.js');
-  //   }
-  //
-  // }
-
-  // hideContactInfo(e) {
-  //   let infoWindow = document.getElementById('info-window');
-  //
-  //   for (let i = 0; i < infoWindow.childNodes.length; i++) {
-  //     infoWindow.removeChild(infoWindow.childNodes[i]);
-  //   }
-  // }
   componentWillUnmount() {
+
     window.scrollTo(0, 0);
     window.removeEventListener("scroll", this.checkPosition.bind(this));
     window.removeEventListener("resize", this.setDimensions.bind(this));
+
   }
-  componentWillMount() {
-    // window.scrollTo(0, 0);
-  }
-  componentDidMount(e) {
-    // window.scrollTo(0, 0);
+  componentDidMount() {
 
     if (window.innerWidth > 900) {
       this.setDimensions();
@@ -198,91 +121,42 @@ class App extends Component {
           return res.json();
         })
         .then((data) => {
-          console.log('This is the data: ', data);
           myThis.setState({ posts: data.data, lastFixer: myThis.state.lastFixer, currentFixer: myThis.state.currentFixer, lastFeed: myThis.state.lastFeed, currentFeed: myThis.state.currentFeed});
         })
         .catch((err) => {
-          console.log(err, 'error error error');
+          console.log(err, 'error caught in fetch process, check componentDidMount() function block for debugging…');
         });
     }
-
-
-    // let foot = document.getElementById('foot');
-    // let instagram = document.getElementById('instagram-window');
-    // let rootRect = document.getElementById('root').getBoundingClientRect();
-    // let textContent = document.getElementById("text-content");
-    // // if (window.innerHeight)
-    // let footRect = document.getElementById('foot').getBoundingClientRect();
-
-
-    // this.updateDimensionsAndPositioning();
-    // window.addEventListener("resize", this.updateDimensionsAndPositioning.bind(this));
-    //
-
-
-    // if (theWindowHeight > footRect.y && theWindowHeight < rootRect.height) {
-    //   console.log(footRect, theWindowHeight);
-    //   foot.style.position = "absolute";
-    //   foot.style.left = "0";
-    //   foot.style.right = "0";
-    //   foot.style.top = (rootRect.height - footRect.height) + "px";
-    // } else if (theWindowHeight > footRect.y && theWindowHeight > rootRect.height) {
-    //   foot.style.position = "absolute";
-    //   foot.style.left = "0";
-    //   foot.style.right = "0";
-    //   foot.style.bottom = "0";
-    // }
-
-    // instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
   }
 
-  // updateDimensionsAndPositioning() {
-  //   let foot = document.getElementById('foot');
-  //   // let instagram = document.getElementById('instagram-window');
-  //   let rootRect = document.getElementById('root').getBoundingClientRect();
-  //   // let textContent = document.getElementById("text-content");
-  //   // if (window.innerHeight)
-  //   let footRect = document.getElementById('foot').getBoundingClientRect();
-  //
-  //   if (theWindowHeight > footRect.y && theWindowHeight < rootRect.height) {
-  //     console.log(footRect, theWindowHeight);
-  //     foot.style.position = "absolute";
-  //     foot.style.left = "0";
-  //     foot.style.right = "0";
-  //     foot.style.top = (rootRect.height - footRect.height) + "px";
-  //   } else if (theWindowHeight > footRect.y && theWindowHeight > rootRect.height) {
-  //     foot.style.position = "absolute";
-  //     foot.style.left = "0";
-  //     foot.style.right = "0";
-  //     foot.style.bottom = "0";
-  //   }
-  //
-  //   // instagram.style.cssText = "height: " + textContent.getBoundingClientRect().height + "px;";
-  // }
-
   showInformation(e) {
+
     let overlay = document.getElementById('overlay');
     let card = document.getElementById('card');
-    // overlay.style.display = "flex";
+
     overlay.style.zIndex = 10;
     overlay.style.opacity = 1;
     card.style.transform = 'translateY(0)';
+
   }
   hideInformation(e) {
+
     let overlay = document.getElementById('overlay');
     let card = document.getElementById('card');
     let overlayButton = document.getElementById('overlay-button');
+
     if (e.target === overlay || e.target === overlayButton) {
-      // overlay.style.display = "none";
       overlay.style.opacity = 0;
       card.style.transform = 'translateY(-10px)';
       setTimeout(function() {
         overlay.style.zIndex = -1;
       }, 200);
     }
+
   }
 
   setDimensions() {
+
     let textContent = document.getElementById('text-content');
     let textRect = textContent.getBoundingClientRect();
     let feed = document.getElementById('feed-shell');
@@ -293,8 +167,10 @@ class App extends Component {
     feed.style.top = textRect.y + "px";
     feed.style.left = textRect.left + textRect.width + 30 + "px";
     feed.style.width = (contentRect.width * smallGoldenRatio) + "px";
+
   }
-  checkPosition(e) {
+  checkPosition() {
+
     let fixer = document.getElementById('fixer');
     let fixerRect = fixer.getBoundingClientRect();
 
@@ -306,37 +182,7 @@ class App extends Component {
 
     this.setState({ posts: this.state.posts, lastFixer: this.state.currentFixer, currentFixer: fixerRect.y, lastFeed: this.state.currentFeed, currentFeed: feedRect.y });
 
-    // if (fixerRect.height)
-    // console.log("fixerRect: ", fixerRect);
-    // console.log("fixerRect height: ", fixerRect.height);
-    // console.log("fixerRect y: ", fixerRect.y);
-    // console.log("currentFixer: ", this.state.currentFixer);
-    // console.log("lastFixer: ", this.state.lastFixer);
-    console.log("feedRect y: ", feedRect.y);
-    // console.log("currentFeed: ", this.state.currentFeed);
-    // console.log("lastFeed: ", this.state.lastFeed);
-    console.log("textRect Y: ", textRect.y);
-    // console.log("the equation: ", (textRect.y - (fixerRect.height - window.innerHeight)));
-    // console.log("lastFeed = ", this.state.lastFeed);
-    // console.log("FIXER RECT Y = ", fixerRect.y);
-
-    // console.log("window.innerHeight: ", window.innerHeight);
-    //
-    // console.log("feedRect: ", feedRect);
-    // console.log("feedRect height: ", feedRect.height);
-    // console.log("feedRect y: ", feedRect.y);
-    // console.log("window.innerHeight: ", window.innerHeight);
-
-    // if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= ((fixerRect.height - window.innerHeight) - feedRect.y)) {
-    //   console.log(this.state.lastFeed, feedRect.y, fixerRect.height - window.innerHeight);
-    //   console.log("this.state.lastFeed", "feedRect.y", "fixerRect.height - window.innerHeight");
-    //   fixer.style.top = 0;
-    //   fixer.style.position = "static";
-
     if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= textRect.y) {
-      console.log('height - windowHeight = ', ((fixerRect.height - window.innerHeight) - feedRect.y));
-      // console.log(this.state.lastFeed, feedRect.y, fixerRect.height - window.innerHeight);
-      // console.log("this.state.lastFeed", "feedRect.y", "fixerRect.height - window.innerHeight");
       fixer.style.top = 0;
       fixer.style.position = "static";
     } else if (fixerRect.height > window.innerHeight && Math.abs(fixerRect.y) >= (fixerRect.height - window.innerHeight)) {
@@ -344,17 +190,10 @@ class App extends Component {
       fixer.style.position = "fixed";
 
     }
-    // else if () {
-    //   fixer.style.top = fixerRect.y + "px";
-    //   fixer.style.position = "fixed";
-    // }
-
 
   }
 
   render() {
-    // console.log("Data: ", this.state.posts);
-
     return (
       <div id="app-container" className="ta-center">
 
@@ -372,7 +211,6 @@ class App extends Component {
               <p className="slogan">“Reppin' the Emerald Empire”</p>
             </div>
 
-            {/*<img src={companyLandscape} alt="" className="wave d-block"/>*/}
             <div className="wave d-block"></div>
 
             <div id="parent-content" className="">
@@ -491,7 +329,7 @@ class App extends Component {
 
           <div id="overlay" onClick={this.hideInformation.bind(this)}>
             <div id="card">
-              <h2 className="overlay-heading">contact information</h2>
+              <h2 className="overlay-heading">Contact Information</h2>
               <table>
                 <tbody>
                 <tr>
