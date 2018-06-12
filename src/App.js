@@ -124,22 +124,22 @@ class App extends Component {
           return res.json();
         })
         .then((data) => {
-          if (loader.style.display === "") {
+          if (loader.style.display === "" || loader.style.display === "block") {
             loader.style.display = "none";
           }
-          if (failedLoader.style.display === "block" || failedLoader.style.display === "") {
+          if (failedLoader.style.display === "block") {
             failedLoader.style.display = "none";
           }
           myThis.setState({ posts: data.data, lastFixer: myThis.state.lastFixer, currentFixer: myThis.state.currentFixer, lastFeed: myThis.state.lastFeed, currentFeed: myThis.state.currentFeed});
         })
         .catch((err) => {
-          if (loader.style.display === "") {
+          if (loader.style.display === "" || loader.style.display === "block") {
             loader.style.display = "none";
           }
-          if (failedLoader.style.display === "") {
+          if (failedLoader.style.display === "" || failedLoader.style.display === "none") {
             failedLoader.style.display = "block";
           }
-          console.log(err, 'error caught in fetch process, check componentDidMount() function block for debugging…');
+          // console.log(err, 'error caught in fetch process, check componentDidMount() function block for debugging…');
         });
     }
   }
@@ -257,24 +257,31 @@ class App extends Component {
     let failedLoader = document.getElementById('failed-loader');
     let loader = document.getElementById('loader');
 
+
+    if (failedLoader.style.display === "block") {
+      failedLoader.style.display = "none";
+    }
+    if (loader.style.display === "none") {
+      loader.style.display = "";
+    }
     fetch(process.env.REACT_APP_API_ENDPOINT)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        if (loader.style.display === "") {
+        if (loader.style.display === "" || loader.style.display === "block") {
           loader.style.display = "none";
         }
-        if (failedLoader.style.display === "block" || failedLoader.style.display === "") {
+        if (failedLoader.style.display === "block") {
           failedLoader.style.display = "none";
         }
         myThis.setState({ posts: data.data, lastFixer: myThis.state.lastFixer, currentFixer: myThis.state.currentFixer, lastFeed: myThis.state.lastFeed, currentFeed: myThis.state.currentFeed});
       })
       .catch((err) => {
-        if (loader.style.display === "") {
+        if (loader.style.display === "" || loader.style.display === "block") {
           loader.style.display = "none";
         }
-        if (failedLoader.style.display === "") {
+        if (failedLoader.style.display === "" || failedLoader.style.display === "none") {
           failedLoader.style.display = "block";
         }
         // console.log(err, 'error caught in fetch process, check componentDidMount() function block for debugging…');
