@@ -116,15 +116,29 @@ class App extends Component {
       window.addEventListener("resize", this.setDimensions.bind(this));
 
       let myThis = this;
+      let failedLoader = document.getElementById('failed-loader');
+      let loader = document.getElementById('loader');
 
       fetch(process.env.REACT_APP_API_ENDPOINT)
         .then((res) => {
           return res.json();
         })
         .then((data) => {
+          if (loader.style.display === "") {
+            loader.style.display = "none";
+          }
+          if (failedLoader.style.display === "block" || failedLoader.style.display === "") {
+            failedLoader.style.display = "none";
+          }
           myThis.setState({ posts: data.data, lastFixer: myThis.state.lastFixer, currentFixer: myThis.state.currentFixer, lastFeed: myThis.state.lastFeed, currentFeed: myThis.state.currentFeed});
         })
         .catch((err) => {
+          if (loader.style.display === "") {
+            loader.style.display = "none";
+          }
+          if (failedLoader.style.display === "") {
+            failedLoader.style.display = "block";
+          }
           console.log(err, 'error caught in fetch process, check componentDidMount() function block for debugging…');
         });
     }
@@ -220,7 +234,7 @@ class App extends Component {
       let heightDifference = (bannerRect.height + fixerRect.height) - window.innerHeight;
       if (Math.abs(bannerRect.y) >= heightDifference) {
         console.log('saaaa');
-        banner.style.top = -(combinedHeight - window.innerHeight) + "px";
+        banner.style.top = (combinedHeight - window.innerHeight)*(-1) + "px";
         banner.style.position = "fixed";
         // fixer.style.marginTop = '';
         fixer.style.top = bannerRect.height + bannerRect.y + "px";
@@ -237,27 +251,35 @@ class App extends Component {
     }
 
 
-    // let scrollingDown = this.state.lastFeed < feedRect.y;
-    // if (this.state.lastFeed !== null && scrollingDown && this.state.lastFeed >= bannerRect.height) {
-    //   banner.style.position = "static";
-    //   fixer.style.position = "static";
-    //   banner.style.top = 0;
-    //   fixer.style.top = 0;
-    // }
+  }
 
-    // if (combinedElementHeight > window.innerHeight && bannerRect.height )
+  refetch() {
+    let myThis = this;
+    let failedLoader = document.getElementById('failed-loader');
+    let loader = document.getElementById('loader');
 
-    // if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= textRect.y) {
-    //   fixer.style.top = 0;
-    //   fixer.style.position = "static";
-    // } else if (combinedElementHeight > window.innerHeight && Math.abs(bannerRect.height) >= (combinedElementHeight - window.innerHeight)) {
-    //   banner.style.top = 0;
-    //   banner.style.position = "fixed";
-    //   fixer.style.top = (window.innerHeight - bannerRect.height) + "px";
-    //   fixer.style.position = "fixed";
-    //
-    // }
-
+    fetch(process.env.REACT_APP_API_ENDPOINT)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        if (loader.style.display === "") {
+          loader.style.display = "none";
+        }
+        if (failedLoader.style.display === "block" || failedLoader.style.display === "") {
+          failedLoader.style.display = "none";
+        }
+        myThis.setState({ posts: data.data, lastFixer: myThis.state.lastFixer, currentFixer: myThis.state.currentFixer, lastFeed: myThis.state.lastFeed, currentFeed: myThis.state.currentFeed});
+      })
+      .catch((err) => {
+        if (loader.style.display === "") {
+          loader.style.display = "none";
+        }
+        if (failedLoader.style.display === "") {
+          failedLoader.style.display = "block";
+        }
+        // console.log(err, 'error caught in fetch process, check componentDidMount() function block for debugging…');
+      });
   }
 
   render() {
@@ -363,6 +385,13 @@ class App extends Component {
 
 
           <div id="feed-shell" className="d-inline-block w-side vert-align-top instagram-feed-container hidden-mobile">
+            <div id="loader">
+              <p>Initializing Instagram feed…</p>
+            </div>
+            <div id="failed-loader">
+              <p>Instagram is not responding.</p>
+              <p id="failed-loader-button" onClick={this.refetch.bind(this)}>Refresh Feed</p>
+            </div>
             {/*<div id="instagram-window" className=""></div>*/}
             {/*<div id="instagram-window" className=""><InstagramEmbed url="https://www.instagram.com/p/BerunZvhGG6/" maxWidth={false} hideCaption={true} containerTagName="div" protocol='' injectScript onLoading={() => {}} onSuccess={() => {}} onAfterRender={() => {}} onFailure={() => {}}/></div>*/}
             <ul id="instagram-feed">
@@ -379,7 +408,7 @@ class App extends Component {
                   postLikes = post.likes.count;
                 }
                 if (post.type === 'video') {
-                  visualContent = <video className="instagram-image" controls={true} src={post.videos.low_bandwidth.url} width="100%" alt={post.videos.low_bandwidth.url} />;
+                  visualContent = <video className="instagram-image" controls="controls" src={post.videos.low_bandwidth.url} width="100%" alt={post.videos.low_bandwidth.url} />;
                 } else {
                   visualContent = <img className="instagram-image" src={post.images.low_resolution.url} width="100%" alt={post.images.low_resolution.url} />;
                 }
