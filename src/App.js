@@ -109,6 +109,7 @@ class App extends Component {
   componentDidMount() {
 
     if (window.innerWidth > 900) {
+
       this.setDimensions();
 
       window.addEventListener("scroll", this.checkPosition.bind(this));
@@ -157,15 +158,31 @@ class App extends Component {
 
   setDimensions() {
 
-    let textContent = document.getElementById('text-content');
-    let textRect = textContent.getBoundingClientRect();
+    let innerContent = document.getElementById('inner-content');
+    let innerContentRect = innerContent.getBoundingClientRect();
+
     let feed = document.getElementById('feed-shell');
     let content = document.getElementById('content');
     let contentRect = content.getBoundingClientRect();
+    let banner = document.getElementById('banner');
+    let bannerRect = banner.getBoundingClientRect();
+    let fixer = document.getElementById('fixer');
+    let fixerRect = fixer.getBoundingClientRect();
+
     let smallGoldenRatio = 0.382;
 
-    feed.style.top = textRect.y + "px";
-    feed.style.left = textRect.left + textRect.width + 30 + "px";
+    banner.style.top = 0;
+    banner.style.position = "fixed";
+    fixer.style.marginTop = bannerRect.height + "px";
+
+    if (window.innerHeight > (fixerRect.height + bannerRect.height)) {
+      fixer.style.marginTop = '';
+      fixer.style.top = bannerRect.height + "px";
+      fixer.style.position = "fixed";
+    }
+
+    feed.style.top = bannerRect.height + "px";
+    feed.style.left = innerContentRect.left + innerContentRect.width + "px";
     feed.style.width = (contentRect.width * smallGoldenRatio) + "px";
 
   }
@@ -174,22 +191,69 @@ class App extends Component {
     let fixer = document.getElementById('fixer');
     let fixerRect = fixer.getBoundingClientRect();
 
+    let banner = document.getElementById('banner');
+    let bannerRect = banner.getBoundingClientRect();
+
+    let combinedElementHeight = bannerRect.height + fixerRect.height + 30;
+
     let feedShell = document.getElementById('feed-shell');
     let feedRect = feedShell.getBoundingClientRect();
 
-    let textContent = document.getElementById('text-content');
-    let textRect = textContent.getBoundingClientRect();
+    let innerContent = document.getElementById('inner-content');
+    let innerContentRect = innerContent.getBoundingClientRect();
 
     this.setState({ posts: this.state.posts, lastFixer: this.state.currentFixer, currentFixer: fixerRect.y, lastFeed: this.state.currentFeed, currentFeed: feedRect.y });
 
-    if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= textRect.y) {
-      fixer.style.top = 0;
-      fixer.style.position = "static";
-    } else if (fixerRect.height > window.innerHeight && Math.abs(fixerRect.y) >= (fixerRect.height - window.innerHeight)) {
-      fixer.style.top = (window.innerHeight - fixerRect.height) + "px";
+    if ((bannerRect.height + fixerRect.height) <= window.innerHeight) {
+      banner.style.top = 0;
+      banner.style.position = "fixed";
+      fixer.style.marginTop = '';
+      fixer.style.top = bannerRect.height + "px";
       fixer.style.position = "fixed";
+    }
+
+    if ((bannerRect.height + fixerRect.height) > window.innerHeight) {
+      console.log('whoo');
+      console.log("bannerRect.y = ", Math.abs(bannerRect.y));
+      console.log("(bannerRect.height + fixerRect.height) - window.innerHeight = ", (bannerRect.height + fixerRect.height) - window.innerHeight);
+      let heightDifference = (bannerRect.height + fixerRect.height) - window.innerHeight;
+      if ((fixerRect.y + fixerRect.height) <= window.innerHeight) {
+        console.log('saaaa');
+        // banner.style.top = 0;
+        // banner.style.position = "fixed";
+        fixer.style.marginTop = '';
+        fixer.style.top = bannerRect.height - heightDifference + "px";
+        fixer.style.position = "fixed";
+      }
+      if (feedRect.y >= fixerRect.y && this.state.lastFeed < feedRect.y) {
+        fixer.style.marginTop = bannerRect.height + "px";
+        fixer.style.top = '';
+        fixer.style.position = "static";
+      }
 
     }
+
+
+    // let scrollingDown = this.state.lastFeed < feedRect.y;
+    // if (this.state.lastFeed !== null && scrollingDown && this.state.lastFeed >= bannerRect.height) {
+    //   banner.style.position = "static";
+    //   fixer.style.position = "static";
+    //   banner.style.top = 0;
+    //   fixer.style.top = 0;
+    // }
+
+    // if (combinedElementHeight > window.innerHeight && bannerRect.height )
+
+    // if (this.state.lastFeed !== null && this.state.lastFeed < feedRect.y && this.state.lastFeed >= textRect.y) {
+    //   fixer.style.top = 0;
+    //   fixer.style.position = "static";
+    // } else if (combinedElementHeight > window.innerHeight && Math.abs(bannerRect.height) >= (combinedElementHeight - window.innerHeight)) {
+    //   banner.style.top = 0;
+    //   banner.style.position = "fixed";
+    //   fixer.style.top = (window.innerHeight - bannerRect.height) + "px";
+    //   fixer.style.position = "fixed";
+    //
+    // }
 
   }
 
@@ -205,13 +269,16 @@ class App extends Component {
 
         <div id="app-body" className="text-gray">
 
-          <div id="fixer" className="fixed-element">
+          <div id="banner">
             <div id="identity" className="brand-container">
               <img src={logo} className="logo" alt="logo" />
               <p className="slogan">“Reppin' the Emerald Empire”</p>
             </div>
 
             <div className="wave d-block"></div>
+          </div>
+
+          <div id="fixer" className="fixed-element">
 
             <div id="parent-content" className="">
               <div id="content" className="content-container t-align-left hor-container-margin">
@@ -273,12 +340,12 @@ class App extends Component {
                   </div>
                   <div className="certification-pairs-container">
                     <div className="certification-pair">
-                      <img src={certIcon} alt="" className="certification-icons"/>
-                      <p>Clean Green Certified</p>
-                    </div>
-                    <div className="certification-pair">
                       <img src={leafIcon} alt="" className="certification-icons"/>
                       <p>Flowers, Extracts, & Genetics</p>
+                    </div>
+                    <div className="certification-pair">
+                      <img src={certIcon} alt="" className="certification-icons"/>
+                      <p>Clean Green Certified</p>
                     </div>
                   </div>
                   <footer id="foot" className="text-gray">
