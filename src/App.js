@@ -233,7 +233,6 @@ class App extends Component {
 
       let heightDifference = (bannerRect.height + fixerRect.height) - window.innerHeight;
       if (Math.abs(bannerRect.y) >= heightDifference) {
-        console.log('saaaa');
         banner.style.top = (combinedHeight - window.innerHeight)*(-1) + "px";
         banner.style.position = "fixed";
         // fixer.style.marginTop = '';
