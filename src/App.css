@@ -496,13 +496,6 @@ tr {
   h2 {
     font-size: 1.75em;
   }
-  #loader {
-    display: none;
-  }
-  #failed-loader {
-    display: none;
-
-  }
   .certification-icons {
     height: 30px;
     margin-right: 10px;
