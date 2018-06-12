@@ -171,12 +171,14 @@ class App extends Component {
 
     let smallGoldenRatio = 0.382;
 
-    banner.style.top = 0;
-    banner.style.position = "fixed";
-    fixer.style.marginTop = bannerRect.height + "px";
+    // banner.style.top = 0;
+    // banner.style.position = "fixed";
+    // fixer.style.marginTop = bannerRect.height + "px";
 
     if (window.innerHeight > (fixerRect.height + bannerRect.height)) {
-      fixer.style.marginTop = '';
+      // fixer.style.marginTop = '';
+      banner.style.top = 0;
+      banner.style.position = "fixed";
       fixer.style.top = bannerRect.height + "px";
       fixer.style.position = "fixed";
     }
@@ -194,39 +196,40 @@ class App extends Component {
     let banner = document.getElementById('banner');
     let bannerRect = banner.getBoundingClientRect();
 
-    let combinedElementHeight = bannerRect.height + fixerRect.height + 30;
+    // let combinedElementHeight = bannerRect.height + fixerRect.height + 30;
 
     let feedShell = document.getElementById('feed-shell');
     let feedRect = feedShell.getBoundingClientRect();
 
-    let innerContent = document.getElementById('inner-content');
-    let innerContentRect = innerContent.getBoundingClientRect();
+    // let innerContent = document.getElementById('inner-content');
+    // let innerContentRect = innerContent.getBoundingClientRect();
 
     this.setState({ posts: this.state.posts, lastFixer: this.state.currentFixer, currentFixer: fixerRect.y, lastFeed: this.state.currentFeed, currentFeed: feedRect.y });
 
     if ((bannerRect.height + fixerRect.height) <= window.innerHeight) {
       banner.style.top = 0;
       banner.style.position = "fixed";
-      fixer.style.marginTop = '';
+      // fixer.style.marginTop = '';
       fixer.style.top = bannerRect.height + "px";
       fixer.style.position = "fixed";
     }
+    let combinedHeight = bannerRect.height + fixerRect.height;
 
-    if ((bannerRect.height + fixerRect.height) > window.innerHeight) {
-      console.log('whoo');
-      console.log("bannerRect.y = ", Math.abs(bannerRect.y));
-      console.log("(bannerRect.height + fixerRect.height) - window.innerHeight = ", (bannerRect.height + fixerRect.height) - window.innerHeight);
+    if (combinedHeight > window.innerHeight) {
+
       let heightDifference = (bannerRect.height + fixerRect.height) - window.innerHeight;
-      if ((fixerRect.y + fixerRect.height) <= window.innerHeight) {
+      if (Math.abs(bannerRect.y) >= heightDifference) {
         console.log('saaaa');
-        // banner.style.top = 0;
-        // banner.style.position = "fixed";
-        fixer.style.marginTop = '';
-        fixer.style.top = bannerRect.height - heightDifference + "px";
+        banner.style.top = -(combinedHeight - window.innerHeight) + "px";
+        banner.style.position = "fixed";
+        // fixer.style.marginTop = '';
+        fixer.style.top = bannerRect.height + bannerRect.y + "px";
         fixer.style.position = "fixed";
       }
       if (feedRect.y >= fixerRect.y && this.state.lastFeed < feedRect.y) {
-        fixer.style.marginTop = bannerRect.height + "px";
+        // fixer.style.marginTop = bannerRect.height + "px";
+        banner.style.top = '';
+        banner.style.position = "static";
         fixer.style.top = '';
         fixer.style.position = "static";
       }
