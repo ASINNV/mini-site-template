@@ -232,7 +232,7 @@ class App extends Component {
     if (combinedHeight > window.innerHeight) {
 
       let heightDifference = (bannerRect.height + fixerRect.height) - window.innerHeight;
-      if (Math.abs(bannerRect.y) >= heightDifference) {
+      if (Math.abs(bannerRect.y) >= heightDifference && feedRect.height > combinedHeight) { // check if Instagram feed is taller than other content before absolutely positioning other content
         banner.style.top = (combinedHeight - window.innerHeight)*(-1) + "px";
         banner.style.position = "fixed";
         // fixer.style.marginTop = '';
@@ -321,8 +321,8 @@ class App extends Component {
                       <div>
                         <div>
                           <h2>Who We Are</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum eget mauris id consequat. Ut porta mattis finibus. Phasellus mattis eget nibh sit amet congue.</p>
-                          <p>Nullam vel suscipit turpis, eu mollis turpis.</p>
+                          <p>Our mission is simple. Grow clean green certified, sun-grown cannabis for the modern day consumer.</p>
+                          <p>Specialty strains, hand-crafted, from Mendocino County.</p>
                         </div>
 
                         <div>
