@@ -434,6 +434,7 @@ tr {
 }
 .instagram-caption {
   margin: 15px 0;
+  word-wrap: break-word;
 }
 
 /*.footer-element {*/
