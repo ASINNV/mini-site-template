@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import logo from './images/Logo.svg';
+import logo from './images/hagaman_logo.svg';
 import './App.css';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 // import InstagramEmbed from 'react-instagram-embed';
 
-// import globeIcon from "./images/GlobeIcon.svg";
-import certIcon from "./images/CertIcon.svg";
-import leafIcon from "./images/LeafIcon.svg";
+import rolfIcon from "./images/ROLF_logo.svg";
 
 // const theWindow=window,
 //   theDoc=document,
@@ -303,10 +301,9 @@ class App extends Component {
           <div id="banner">
             <div id="identity" className="brand-container">
               <img src={logo} className="logo" alt="logo" />
-              <p className="slogan">“Reppin' the Emerald Empire”</p>
             </div>
 
-            <div className="wave d-block"></div>
+            {/*<div className="wave d-block"></div>*/}
           </div>
 
           <div id="fixer" className="fixed-element">
@@ -320,15 +317,15 @@ class App extends Component {
 
                       <div>
                         <div>
-                          <h2>Who We Are</h2>
-                          <p>Our mission is simple. Grow clean green certified, sun-grown cannabis for the modern day consumer.</p>
-                          <p>Specialty strains, hand-crafted, from Mendocino County.</p>
+                          <h2>My Practice</h2>
+                          <p>Edge and Center Bodywork offers the ten-session structural integration process of re-educating the body through movement and touch, systematically releasing patterns of stress and impaired function, allowing humans to find their full potential as their most powerful and authentic self.</p>
                         </div>
 
                         <div>
-                          <h2>What We Do</h2>
-                          <p>Integer nunc leo, efficitur sit amet nibh sit amet, accumsan feugiat diam. Sed risus purus, elementum a lobortis eget, finibus non nisi.</p>
-                          <p>Nulla egestas euismod justo. Suspendisse felis ligula, tempor sit amet feugiat eget, porttitor a felis.</p>
+                          <h2>Greg Hagaman</h2>
+                          <p>I was a member of the U.S. Bobsled and Skeleton team from 1985 to 1997. My interest in holistic health began while working as a bridge painter and a commercial fisherman. Both occupations put a great demand on my body and many times I worked in pain.</p>
+                          <p>My search for ways to become pain-free lead to Structural Integration. I have been a practicing since 1998, certified by The Guild for Structural Integration in Boulder, Colorado being from the first graduating class from Kauai, Hawaii. Previously I had private instruction in Bangalore, India.</p>
+                          <p>Since my time in Boulder and Kuai, I have practiced in Europe, New York, Rhode Island, and California. I enjoy yoga, hiking, music, and biking, when I am not spending time with my son Shane.</p>
                         </div>
                       </div>
 
@@ -370,17 +367,17 @@ class App extends Component {
                     <p id="contact-expander" onClick={this.showInformation.bind(this)}>SHOW CONTACT INFO</p>
                   </div>
                   <div className="certification-pairs-container">
+                    {/*<div className="certification-pair">*/}
+                      {/*<img src={leafIcon} alt="" className="certification-icons"/>*/}
+                      {/*<p>Structural Integration</p>*/}
+                    {/*</div>*/}
                     <div className="certification-pair">
-                      <img src={leafIcon} alt="" className="certification-icons"/>
-                      <p>Flowers, Extracts, & Genetics</p>
-                    </div>
-                    <div className="certification-pair">
-                      <img src={certIcon} alt="" className="certification-icons"/>
-                      <p>Clean Green Certified</p>
+                      <a href="https://rolf.org/"><img src={rolfIcon} alt="" className="certification-icons"/></a>
+                      <p>Certified Practitioner</p>
                     </div>
                   </div>
                   <footer id="foot" className="text-gray">
-                    <p className="footer-element">2018 &copy; Cowboy Chronic Brand&trade;</p>
+                    <p className="footer-element">2018 &copy; Edge & Center Bodywork&trade;</p>
                     <p className="footer-element">Powered by <a className="ams-plug" href="https://andmoorestudios.xyz">And Moore Studios&#8480;</a></p>
                   </footer>
                 </div>
