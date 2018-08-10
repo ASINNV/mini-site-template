@@ -398,7 +398,7 @@ class App extends Component {
             {/*<div id="instagram-window" className=""></div>*/}
             {/*<div id="instagram-window" className=""><InstagramEmbed url="https://www.instagram.com/p/BerunZvhGG6/" maxWidth={false} hideCaption={true} containerTagName="div" protocol='' injectScript onLoading={() => {}} onSuccess={() => {}} onAfterRender={() => {}} onFailure={() => {}}/></div>*/}
             <ul id="instagram-feed">
-              {this.state.posts !== undefined ? this.state.posts.map((post, i) => {
+              {this.state.posts !== undefined && this.state.posts.length > 0 ? this.state.posts.map((post, i) => {
                 let visualContent = null;
                 let captionContent = null;
                 let accountName = null;
@@ -424,7 +424,7 @@ class App extends Component {
                 }
                 return <InstagramPost key={i} accountName={accountName !== null ? accountName : false} accountPicture={accountPicture !== null ? accountPicture : false} postDate={postDate !== null ? postDate : false} visualContent={visualContent !== null ? visualContent : false} captionContent={captionContent !== null ? captionContent : false} postLikes={postLikes !== null ? postLikes : false} />
 
-              }) : console.log("DAMN NOT AGAIN")}
+              }) : <p className="no-posts">No Instagram posts found.</p>}
             </ul>
           </div>
 
