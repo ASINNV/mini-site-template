@@ -321,7 +321,7 @@ class App extends Component {
                       <div>
                         <div>
                           <h2>Who We Are</h2>
-                          <p>Our mission is simple. Grow clean green certified, sun-grown cannabis for the modern day consumer.</p>
+                          <p>Our mission is simple. Produce clean green certified, sun-grown cannabis for the modern day consumer.</p>
                           <p>Specialty strains, hand-crafted, from Mendocino County.</p>
                         </div>
 
