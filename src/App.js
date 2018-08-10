@@ -334,23 +334,23 @@ class App extends Component {
                   </div>
                   <div id="social" className="social-container">
                     <div className="d-inline-block w-8">
-                      <a href="tel:+15555555555" title="(555) 555-5555"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
+                      <a href="tel:+17074727001" title="(707) 472-7001"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8">
-                      <a href="mailto:companyname@gmail.com" title="companyname@gmail.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
+                      <a href="mailto:greg@edgeandcenter.com" title="greg@edgeandcenter.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8">
-                      <a href="https://www.google.com/maps/place/Point+Arena,+CA+95468/@38.9111833,-123.7104193,15z/data=!3m1!4b1!4m5!3m4!1s0x808118d7d648777d:0x755ce630f0324829!8m2!3d38.9088009!4d-123.6930943" rel="noopener noreferrer" target="_blank" title="790 Port Rd, Point Arena, CA 95468"><i id="address-button" className="fa fa-globe social-icon"/></a>
+                      <a href="https://goo.gl/maps/GV8TdwzKgXT2" rel="noopener noreferrer" target="_blank" title="38550 CA-1, Gualala, CA 95445"><i id="address-button" className="fa fa-globe social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8 hidden-desktop">
-                      <a href="mailto:companyname@gmail.com" title="companyname@gmail.com"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
+                      <a href="https://www.instagram.com/edgeandcenter/" title="Edge & Center on Instagram" target="_blank" rel="noopener noreferrer"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
                     </div>
                     {/*<div className="social-icon pipe">|</div>*/}
                     {/*<div className="d-inline-block w-8">*/}
-                    {/*<a href=""><i className="fa fa-facebook-square social-icon"/></a>*/}
+                    {/*<a href="https://www.facebook.com/edgeandcenter/" title="Edge & Center on Facebook" target="_blank"><i className="fa fa-facebook-square social-icon"/></a>*/}
                     {/*</div>*/}
                     {/*<div className="d-inline-block w-8">*/}
                     {/*<a href=""><i className="fa fa-twitter-square social-icon"/></a>*/}
@@ -436,11 +436,11 @@ class App extends Component {
                 <tbody>
                 <tr>
                   <td className="table-label">Phone</td>
-                  <td>(707) 882-5555</td>
+                  <td>(707) 472-7001</td>
                 </tr>
                 <tr>
                   <td className="table-label">Email</td>
-                  <td>companyemail@gmail.com</td>
+                  <td>greg@edgeandcenter.com</td>
                 </tr>
                 <tr>
                   <td className="table-label">Address</td>
@@ -448,9 +448,9 @@ class App extends Component {
                     <table>
                       <tbody>
                       <tr>
-                        <td className="d-block">[Company Name]</td>
-                        <td className="d-block">[Street Address]</td>
-                        <td className="d-block">[City, State, & Zip]</td>
+                        <td className="d-block">Edge & Center Bodywork</td>
+                        <td className="d-block">38550 S Hwy 1, Suite B</td>
+                        <td className="d-block">Gualala, CA 95445</td>
                       </tr>
                       </tbody>
                     </table>
