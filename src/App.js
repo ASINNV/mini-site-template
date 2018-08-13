@@ -303,7 +303,7 @@ class App extends Component {
           <div id="banner">
             <div id="identity" className="brand-container">
               <img src={logo} className="logo" alt="logo" />
-              <p className="slogan">“Reppin' the Emerald Empire”</p>
+              <p className="slogan">Empire Built Extracts & Genetics</p>
             </div>
 
             <div className="wave d-block"></div>
