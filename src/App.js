@@ -341,7 +341,7 @@ class App extends Component {
                     </div>
 
                     <div className="d-inline-block w-8">
-                      <a href="mailto:forestnikolaelie@gmail.com" title="forestnikolaelie@gmail.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
+                      <a href="mailto:cowboychronic@gmail.com" title="cowboychronic@gmail.com"><i id="email-button" className="fa fa-envelope-square social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8">
@@ -443,7 +443,7 @@ class App extends Component {
                 </tr>
                 <tr>
                   <td className="table-label">Email</td>
-                  <td>forestnikolaelie@gmail.com</td>
+                  <td>cowboychronic@gmail.com</td>
                 </tr>
                 <tr>
                   <td className="table-label">Address</td>
