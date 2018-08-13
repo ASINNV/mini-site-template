@@ -341,7 +341,7 @@ class App extends Component {
                     {/*</div>*/}
 
                     <div className="d-inline-block w-8">
-                      <a href="https://www.instagram.com/cowboychronicbrand/" title="Cowboy Chronic on Instagram"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
+                      <a href="https://www.instagram.com/cowboychronicbrand/" title="Cowboy Chronic on Instagram" rel="noopener noreferrer" target="_blank"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8">
