@@ -95,7 +95,10 @@ class App extends Component {
       lastFixer: 0,
       currentFixer: 0,
       lastFeed: 0,
-      currentFeed: 0
+      currentFeed: 0,
+      currentVerticalOffset: null,
+      lastVerticalOffset: null,
+      logoSize: 0
     };
 
   }
@@ -218,7 +221,22 @@ class App extends Component {
     // let innerContent = document.getElementById('inner-content');
     // let innerContentRect = innerContent.getBoundingClientRect();
 
-    this.setState({ posts: this.state.posts, lastFixer: this.state.currentFixer, currentFixer: fixerRect.y, lastFeed: this.state.currentFeed, currentFeed: feedRect.y });
+    this.setState({ posts: this.state.posts, lastFixer: this.state.currentFixer, currentFixer: fixerRect.y, lastFeed: this.state.currentFeed, currentFeed: feedRect.y, currentVerticalOffset: typeof document.scrollTop === 'number' ? document.scrollTop : window.pageYOffset, lastVerticalOffset: this.state.currentVerticalOffset});
+
+    console.log("currentVerticalOffset = ", this.state.currentVerticalOffset);
+    console.log("lastVerticalOffset = ", this.state.lastVerticalOffset);
+
+    let differenceOffset = this.state.currentVerticalOffset - this.state.lastVerticalOffset;
+    if (differenceOffset < 0 && this.state.currentVerticalOffset < 100 && this.state.logoSize === 0) {
+      console.log('shrink logo');
+      console.log("logoSize = ", this.state.logoSize === 0 ? "large" : "small");
+      // let logo = document.getElementById('');
+      this.setState({ ...this.state, logoSize: 1});
+    } else if (differenceOffset > 0 && this.state.currentVerticalOffset >= 100 && this.state.logoSize === 1) {
+      console.log('engorge logo');
+      console.log("logoSize = ", this.state.logoSize === 0 ? "large" : "small");
+      this.setState({ ...this.state, logoSize: 0});
+    }
 
     if ((bannerRect.height + fixerRect.height) <= window.innerHeight) {
       banner.style.top = 0;
