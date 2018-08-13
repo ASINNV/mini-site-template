@@ -218,6 +218,9 @@ class App extends Component {
     let feedShell = document.getElementById('feed-shell');
     let feedRect = feedShell.getBoundingClientRect();
 
+    let myLogo = document.getElementById('logo');
+    let myLogoText = document.getElementById('logo-text');
+
     // let innerContent = document.getElementById('inner-content');
     // let innerContentRect = innerContent.getBoundingClientRect();
 
@@ -227,15 +230,21 @@ class App extends Component {
     console.log("lastVerticalOffset = ", this.state.lastVerticalOffset);
 
     let differenceOffset = this.state.currentVerticalOffset - this.state.lastVerticalOffset;
-    if (differenceOffset < 0 && this.state.currentVerticalOffset < 100 && this.state.logoSize === 0) {
+    if (differenceOffset >= 0 && this.state.currentVerticalOffset >= 100 && this.state.logoSize === 0) {
       console.log('shrink logo');
-      console.log("logoSize = ", this.state.logoSize === 0 ? "large" : "small");
-      // let logo = document.getElementById('');
+
+      myLogo.style.height = '100px';
+      myLogoText.style.fontSize = '1em';
       this.setState({ ...this.state, logoSize: 1});
-    } else if (differenceOffset > 0 && this.state.currentVerticalOffset >= 100 && this.state.logoSize === 1) {
+
+    } else if (differenceOffset < 0 && this.state.currentVerticalOffset < 100 && this.state.logoSize === 1) {
       console.log('engorge logo');
       console.log("logoSize = ", this.state.logoSize === 0 ? "large" : "small");
+
+      myLogo.style.height = '';
+      myLogoText.style.fontSize = '';
       this.setState({ ...this.state, logoSize: 0});
+
     }
 
     if ((bannerRect.height + fixerRect.height) <= window.innerHeight) {
@@ -320,8 +329,8 @@ class App extends Component {
 
           <div id="banner">
             <div id="identity" className="brand-container">
-              <img src={logo} className="logo" alt="logo" />
-              <p className="slogan">“Reppin' the Emerald Empire”</p>
+              <img id="logo" src={logo} className="logo" alt="logo" />
+              <p id="logo-text" className="slogan">“Reppin' the Emerald Empire”</p>
             </div>
 
             <div className="wave d-block"></div>
@@ -354,8 +363,12 @@ class App extends Component {
 
                   </div>
                   <div id="social" className="social-container">
+                    {/*<div className="d-inline-block w-8">*/}
+                      {/*<a href="" title=""><i id="phone-button" className="fa fa-phone-square social-icon"/></a>*/}
+                    {/*</div>*/}
+
                     <div className="d-inline-block w-8">
-                      <a href="tel:+17072360461" title="(707) 236-0461"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
+                      <a href="https://www.instagram.com/cowboychronicbrand/" title="Cowboy Chronic on Instagram" rel="noopener noreferrer" target="_blank"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8">
@@ -364,10 +377,6 @@ class App extends Component {
 
                     <div className="d-inline-block w-8">
                       <a href="https://goo.gl/maps/ruspuyZ1NPr" rel="noopener noreferrer" target="_blank" title="P.O. Box 292, Redwood Valley, CA 95470"><i id="address-button" className="fa fa-globe social-icon"/></a>
-                    </div>
-
-                    <div className="d-inline-block w-8 hidden-desktop">
-                      <a href="https://www.instagram.com/cowboychronicbrand/" title="Cowboy Chronic on Instagram"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
                     </div>
                     {/*<div className="social-icon pipe">|</div>*/}
                     {/*<div className="d-inline-block w-8">*/}
@@ -455,9 +464,13 @@ class App extends Component {
               <h2 className="overlay-heading">Contact Information</h2>
               <table>
                 <tbody>
+                {/*<tr>*/}
+                  {/*<td className="table-label">Phone</td>*/}
+                  {/*<td></td>*/}
+                {/*</tr>*/}
                 <tr>
-                  <td className="table-label">Phone</td>
-                  <td>(707) 236-0461</td>
+                  <td className="table-label">Instagram</td>
+                  <td>@cowboychronicbrand</td>
                 </tr>
                 <tr>
                   <td className="table-label">Email</td>
