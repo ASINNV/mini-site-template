@@ -336,8 +336,12 @@ class App extends Component {
 
                   </div>
                   <div id="social" className="social-container">
+                    {/*<div className="d-inline-block w-8">*/}
+                      {/*<a href="" title=""><i id="phone-button" className="fa fa-phone-square social-icon"/></a>*/}
+                    {/*</div>*/}
+
                     <div className="d-inline-block w-8">
-                      <a href="tel:+17072360461" title="(707) 236-0461"><i id="phone-button" className="fa fa-phone-square social-icon"/></a>
+                      <a href="https://www.instagram.com/cowboychronicbrand/" title="Cowboy Chronic on Instagram"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
                     </div>
 
                     <div className="d-inline-block w-8">
@@ -346,10 +350,6 @@ class App extends Component {
 
                     <div className="d-inline-block w-8">
                       <a href="https://goo.gl/maps/ruspuyZ1NPr" rel="noopener noreferrer" target="_blank" title="P.O. Box 292, Redwood Valley, CA 95470"><i id="address-button" className="fa fa-globe social-icon"/></a>
-                    </div>
-
-                    <div className="d-inline-block w-8 hidden-desktop">
-                      <a href="https://www.instagram.com/cowboychronicbrand/" title="Cowboy Chronic on Instagram"><i id="instagram-button" className="fa fa-instagram social-icon"/></a>
                     </div>
                     {/*<div className="social-icon pipe">|</div>*/}
                     {/*<div className="d-inline-block w-8">*/}
@@ -437,9 +437,13 @@ class App extends Component {
               <h2 className="overlay-heading">Contact Information</h2>
               <table>
                 <tbody>
+                {/*<tr>*/}
+                  {/*<td className="table-label">Phone</td>*/}
+                  {/*<td></td>*/}
+                {/*</tr>*/}
                 <tr>
-                  <td className="table-label">Phone</td>
-                  <td>(707) 236-0461</td>
+                  <td className="table-label">Instagram</td>
+                  <td>@cowboychronicbrand</td>
                 </tr>
                 <tr>
                   <td className="table-label">Email</td>
