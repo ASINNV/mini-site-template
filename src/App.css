@@ -176,7 +176,7 @@ header {
   color: #5fad89;
 }
 .certification-icons {
-  height: 60px;
+  height: 96px;
 }
 /*@keyframes App-logo-spin {*/
   /*from { transform: rotate(0deg); }*/
@@ -510,17 +510,12 @@ tr {
     font-size: 1.75em;
   }
   .certification-icons {
-    height: 50px;
     margin-right: 15px;
   }
   .certification-pair {
     margin: 5px 15px;
     text-align: center;
     font-size: 1em;
-  }
-  .wave {
-    background: url(./images/Bar320.png) 50% 50% no-repeat;
-    background-size: cover;
   }
   .content-container {
     /*width: 90%;*/
@@ -622,10 +617,6 @@ tr {
   .slogan {
     font-size: 1.25em;
     display: none;
-  }
-  .wave {
-    background: url(./images/Bar600.png) 50% 50% no-repeat;
-    background-size: cover;
   }
   .hor-container-margin {
     /*width: 90%;*/
@@ -757,10 +748,6 @@ tr {
   .slogan {
     font-size: 1.5em;
     display: none;
-  }
-  .wave {
-    background: url(./images/Bar900.png) 50% 50% no-repeat;
-    background-size: cover;
   }
   .social-icon {
     transition: transform .2s ease-in-out !important;
@@ -942,10 +929,6 @@ tr {
   .slogan {
     display: none;
   }
-  .wave {
-    background: url(./images/Bar1200.png) 50% 50% no-repeat;
-    background-size: cover;
-  }
   .content-container, #foot {
     width: 1000px;
   }
@@ -968,10 +951,6 @@ tr {
   }
 }
 @media (min-width: 1800px) {
-  .wave {
-    background: url(./images/Bar1800.png) 50% 50% no-repeat;
-    background-size: cover;
-  }
   .social-icon {
     transition: color .2s ease-in-out, transform .2s ease-in-out !important;
   }

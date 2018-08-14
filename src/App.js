@@ -5,7 +5,7 @@ import './App.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 // import InstagramEmbed from 'react-instagram-embed';
 
-import rolfIcon from "./images/ROLF_logo.svg";
+import schoolLogo from "./images/schoolLogo.png";
 
 // const theWindow=window,
 //   theDoc=document,
@@ -372,8 +372,8 @@ class App extends Component {
                       {/*<p>Structural Integration</p>*/}
                     {/*</div>*/}
                     <div className="certification-pair">
-                      <a href="https://rolf.org/"><img src={rolfIcon} alt="" className="certification-icons"/></a>
-                      <p>Certified Practitioner</p>
+                      <a href="https://rolf.org/"><img src={schoolLogo} alt="" className="certification-icons"/></a>
+                      {/*<p>Certified Practitioner</p>*/}
                     </div>
                   </div>
                   <footer id="foot" className="text-gray">
