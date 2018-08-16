@@ -321,14 +321,16 @@ class App extends Component {
                       <div>
                         <div>
                           <h2>What We Do</h2>
-                          <p>Our mission is simple. Produce clean green certified, sun-grown cannabis for the modern day consumer.</p>
-                          <p>Specialty strains, hand-crafted, from Mendocino County.</p>
+                          <p>Our mission is simple: produce Clean Green Certified, sun-grown cannabis for the modern day consumer.</p>
+                          <p>Specialty strains, hand-crafted, farmed in Mendocino County.</p>
                         </div>
 
                         <div>
                           <h2>Who We Are</h2>
-                          <p>Integer nunc leo, efficitur sit amet nibh sit amet, accumsan feugiat diam. Sed risus purus, elementum a lobortis eget, finibus non nisi.</p>
-                          <p>Nulla egestas euismod justo. Suspendisse felis ligula, tempor sit amet feugiat eget, porttitor a felis.</p>
+                          <p>Cowboy Chronic founder Forest Elie was born and raised in the “Wild West” of Southern Humboldt and introduced to farming cannabis at age 11. At age 16, Forest received a job offer from Chris Giauque, a legendary grower sometimes referred to as the Paul Bunyon of Humboldt.</p>
+                          <p>Forest worked for chris from 1998 to 2002, learning from the Salmon Creek guru and producing “Solmon Creek Big Bud” on a commercial level. Forest later went on to found Cowboy Chronic Brand in 2016.</p>
+                          <p>Forest is also well-known for jumping, handcuffed, from a 12-foot balcony at a Southern Humboldt party, evading six officers in the process and sleeping it off in a nearby creek bed. A true <span style={{fontStyle: "Italic"}}>West Coast Bandit</span> !</p>
+                          <p>With decades of experience farming top-quality cannabis, we invite you to grow and smoke with us!</p>
                         </div>
                       </div>
 
