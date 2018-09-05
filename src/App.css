@@ -13,6 +13,7 @@ h1 {
 }
 h2 {
   font-size: 1.75em;
+  line-height: 1.25em;
   padding-bottom: 10px;
   font-weight: 600;
   font-family: "Kaushan Script";
@@ -217,6 +218,7 @@ tr {
   line-height: 2;
 }
 .table-label {
+  text-align: center;
   padding-right: 15px;
   padding-bottom: 15px;
   /*margin-bottom:10px;*/
@@ -623,6 +625,11 @@ tr {
   }
   .quote-heading {
     padding-right: 10px;
+  }
+  .quote-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .quote-icon {
     display: none !important;
