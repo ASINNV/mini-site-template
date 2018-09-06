@@ -75,7 +75,7 @@ class InstagramPost extends Component {
         <p className="instagram-caption">{this.props.captionContent}</p>
         <div className="instagram-incidentals">
           {<p className="instagram-likes">{this.props.postLikes} likes</p>}
-          <a className="instagram-link" href="https://www.instagram.com/cowboychronicbrand/" target="_blank" rel="noopener noreferrer">View More on Instagram</a>
+          <a className="instagram-link" href="https://www.instagram.com/edgeandcenter/" target="_blank" rel="noopener noreferrer">View More on Instagram</a>
         </div>
 
 
