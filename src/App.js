@@ -377,7 +377,7 @@ class App extends Component {
                     </div>
                   </div>
                   <footer id="foot" className="text-gray">
-                    <p className="footer-element">2018 &copy; Edge & Center Bodywork&trade;</p>
+                    <p id="copyright" className="footer-element">{new Date().getFullYear()} &copy; Edge & Center Bodywork&trade;</p>
                     <p className="footer-element">Powered by <a className="ams-plug" href="https://andmoorestudios.xyz">And Moore Studios&#8480;</a></p>
                   </footer>
                 </div>
